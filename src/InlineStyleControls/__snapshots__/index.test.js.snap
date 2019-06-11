@@ -1,3 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InlineStyleControls Should render block style control 1`] = `<div />`;
+exports[`InlineStyleControls Should render block style control 1`] = `
+<WithStyles(ForwardRef(ButtonGroup))>
+  <WithStyles(ForwardRef(Button))
+    variant="contained"
+  >
+    <FormatBoldIcon />
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    variant="contained"
+  >
+    <FormatItalicIcon />
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    variant="contained"
+  >
+    <FormatUnderlinedIcon />
+  </WithStyles(ForwardRef(Button))>
+</WithStyles(ForwardRef(ButtonGroup))>
+`;

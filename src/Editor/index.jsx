@@ -13,18 +13,23 @@ export class EditorComponent extends Component {
   }
 
   state = {
-    blockStyle: {},
     editorState: EditorState.createEmpty()
   }
 
   onEditorChange = editorState => this.setState({ editorState })
 
   handleBlockStyleChange = style => {
-    this.setState({
-      blockStyle: style
-    })
     this.onEditorChange(
       RichUtils.toggleBlockType(
+        this.state.editorState,
+        style
+      )
+    );
+  }
+
+  handleInlineStyleChange = style => {
+    this.onEditorChange(
+      RichUtils.toggleInlineStyle(
         this.state.editorState,
         style
       )
@@ -37,14 +42,14 @@ export class EditorComponent extends Component {
       <Fragment>
         <section className={classes.toolbar}>
           <BlockStyleControl onChange={this.handleBlockStyleChange} />
-          <InlineStyleControls onChange={this.handleInlineStyleChange} />
+          <InlineStyleControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
         </section>
-        <Paper className={classes.editor}>
-          <Editor editorState={this.state.editorState} onChange={this.onEditorChange} />
+        <Paper className={classes.editor} onClick={() => this.refs.editor.focus()}>
+          <Editor ref="editor" editorState={this.state.editorState} onChange={this.onEditorChange} />
         </Paper>
       </Fragment>
     )
   }
 }
 
-export default withStyles(styles, { withTheme: true })(EditorComponent)
+export default withStyles(styles)(EditorComponent)
