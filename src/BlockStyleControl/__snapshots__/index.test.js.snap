@@ -4,61 +4,108 @@ exports[`BlockStyleControl Should render block style control 1`] = `
 <WithStyles(ForwardRef(FormControl))
   style={
     Object {
-      "minWidth": 120,
+      "width": "120px",
     }
   }
 >
-  <WithStyles(WithFormControlContext(ForwardRef(Select)))
+  <WithStyles(ForwardRef(Input))
+    endAdornment={
+      <ForwardRef(WithStyles)
+        position="end"
+      >
+        <Memo
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+            }
+          }
+        />
+      </ForwardRef(WithStyles)>
+    }
     inputProps={
       Object {
-        "id": "typography-simple",
-        "name": "typography",
+        "readOnly": true,
       }
     }
-    onChange={[Function]}
+    onClick={[Function]}
+    value="Paragraph"
+  />
+  <WithStyles(ForwardRef(Menu))
+    anchorEl={null}
+    keepMounted={true}
+    onClose={[Function]}
+    open={false}
   >
     <WithStyles(ForwardRef(MenuItem))
       key="paragraph"
-      value="paragraph"
+      onClick={[Function]}
     >
-      Paragraph
+      <WithStyles(ForwardRef(Typography))
+        variant="body1"
+      >
+        Paragraph
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
       key="header-one"
-      value="header-one"
+      onClick={[Function]}
     >
-      H1
+      <WithStyles(ForwardRef(Typography))
+        variant="h1"
+      >
+        H1
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
       key="header-two"
-      value="header-two"
+      onClick={[Function]}
     >
-      H2
+      <WithStyles(ForwardRef(Typography))
+        variant="h2"
+      >
+        H2
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
       key="header-three"
-      value="header-three"
+      onClick={[Function]}
     >
-      H3
+      <WithStyles(ForwardRef(Typography))
+        variant="h3"
+      >
+        H3
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
       key="header-four"
-      value="header-four"
+      onClick={[Function]}
     >
-      H4
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        H4
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
       key="header-five"
-      value="header-five"
+      onClick={[Function]}
     >
-      H5
+      <WithStyles(ForwardRef(Typography))
+        variant="h5"
+      >
+        H5
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
       key="header-six"
-      value="header-six"
+      onClick={[Function]}
     >
-      H6
+      <WithStyles(ForwardRef(Typography))
+        variant="h6"
+      >
+        H6
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
-  </WithStyles(WithFormControlContext(ForwardRef(Select)))>
+  </WithStyles(ForwardRef(Menu))>
 </WithStyles(ForwardRef(FormControl))>
 `;
