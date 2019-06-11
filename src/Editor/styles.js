@@ -1,11 +1,18 @@
 const styles = theme => ({
+  paper: {
+    paddingBottom: theme.spacing(2)
+  },
   toolbar: {
-    marginBottom: theme.spacing(2),
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    backgroundColor: theme.palette.grey[200]
   },
   editor: {
-    padding: theme.spacing(2)
+    margin: theme.spacing(2),
+    marginBottom: 0,
+    padding: theme.spacing(2),
+    backgroundColor: theme.palette.grey[100],
+    borderRadius: theme.shape.borderRadius
   }
 })
 

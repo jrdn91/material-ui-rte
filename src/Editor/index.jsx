@@ -3,9 +3,26 @@ import PropTypes from "prop-types"
 import {Editor, EditorState, RichUtils} from "draft-js"
 import { withStyles } from "@material-ui/styles"
 import Paper from '@material-ui/core/Paper';
+import Toolbar from '@material-ui/core/Toolbar';
 import BlockStyleControl from "../BlockStyleControl";
 import styles from "./styles"
 import InlineStyleControls from "../InlineStyleControls";
+import InlineAlignmentControls from "../InlineAlignmentControls";
+
+const styleMap = {
+  'ALIGN-LEFT': {
+    textAlign: "left",
+    display: "block"
+  },
+  'ALIGN-CENTER': {
+    textAlign: "center",
+    display: "block"
+  },
+  'ALIGN-RIGHT': {
+    textAlign: "right",
+    display: "block"
+  }
+};
 
 export class EditorComponent extends Component {
   static propTypes = {
@@ -39,15 +56,16 @@ export class EditorComponent extends Component {
   render() {
     const { classes } = this.props
     return (
-      <Fragment>
-        <section className={classes.toolbar}>
+      <Paper className={classes.paper}>
+        <Toolbar className={classes.toolbar}>
           <BlockStyleControl onChange={this.handleBlockStyleChange} />
           <InlineStyleControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
-        </section>
-        <Paper className={classes.editor} onClick={() => this.refs.editor.focus()}>
-          <Editor ref="editor" editorState={this.state.editorState} onChange={this.onEditorChange} />
-        </Paper>
-      </Fragment>
+          <InlineAlignmentControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
+        </Toolbar>
+        <div className={classes.editor} onClick={() => this.refs.editor.focus()}>
+          <Editor ref="editor" customStyleMap={styleMap} editorState={this.state.editorState} onChange={this.onEditorChange} />
+        </div>
+      </Paper>
     )
   }
 }
