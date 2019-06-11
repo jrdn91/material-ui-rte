@@ -3,7 +3,7 @@ import { shallow } from "enzyme"
 import Editor from "./index"
 
 describe("Editor", () => {
-  it("should render correctly in 'debug' mode", () => {
+  it("Should render basic editor", () => {
     const component = shallow(<Editor debug />);
   
     expect(component).toMatchSnapshot();
