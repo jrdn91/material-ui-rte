@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/styles"
 import Paper from '@material-ui/core/Paper';
 import BlockStyleControl from "../BlockStyleControl";
 import styles from "./styles"
+import InlineStyleControls from "../InlineStyleControls";
 
 export class EditorComponent extends Component {
   static propTypes = {
@@ -36,6 +37,7 @@ export class EditorComponent extends Component {
       <Fragment>
         <section className={classes.toolbar}>
           <BlockStyleControl onChange={this.handleBlockStyleChange} />
+          <InlineStyleControls onChange={this.handleInlineStyleChange} />
         </section>
         <Paper className={classes.editor}>
           <Editor editorState={this.state.editorState} onChange={this.onEditorChange} />
