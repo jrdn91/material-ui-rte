@@ -11,7 +11,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/build.config.js",
     "start": "NODE_ENV=developement webpack-dev-server --config webpack/dev.config.js",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "jest": {
     "snapshotSerializers": [
