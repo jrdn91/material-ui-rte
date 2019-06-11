@@ -13,6 +13,10 @@
     "start": "NODE_ENV=developement webpack-dev-server --config webpack/dev.config.js",
     "test": "jest"
   },
+  "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./src/setupTests.js"]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -42,6 +46,9 @@
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-ramda": "^2.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.15.1",
     "eslint-config-react-app": "^3.0.8",
     "eslint-loader": "^2.1.1",
