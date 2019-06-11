@@ -35,9 +35,9 @@ const InlineStyleControls = (props) => {
     })} />
   }
   return (
-    <ButtonGroup>
+    <ButtonGroup size="small" variant="contained">
       {INLINE_STYLES.map((type) =>
-        <Button key={type.style} variant="contained" onClick={() => props.onChange(type.style)}>{renderIcon(type)}</Button>
+        <Button key={type.style} onClick={() => props.onChange(type.style)}>{renderIcon(type)}</Button>
       )}
     </ButtonGroup>
   );
