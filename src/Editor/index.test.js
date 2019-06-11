@@ -1,11 +1,11 @@
 import React from "react"
+import { shallow } from "enzyme"
 import Editor from "./index"
-import renderer from "react-test-renderer"
 
-test('Editor renders', () => {
-  const component = renderer.create(
-    <Editor />
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+describe("Editor", () => {
+  it("should render correctly in 'debug' mode", () => {
+    const component = shallow(<Editor debug />);
+  
+    expect(component).toMatchSnapshot();
+  });
 });
