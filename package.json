@@ -14,8 +14,12 @@
     "test": "jest"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./src/setupTests.js"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
   },
   "browserslist": [
     ">0.2%",
