@@ -1,6 +1,8 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import PropTypes from "prop-types"
+import {Editor, EditorState, RichUtils} from "draft-js"
 import { withStyles } from "@material-ui/styles"
+import Paper from '@material-ui/core/Paper';
 import BlockStyleControl from "../BlockStyleControl";
 
 const styles = {
@@ -24,9 +26,14 @@ export class EditorComponent extends Component {
   render() {
     const { classes } = this.props
     return (
-      <section className={classes.toolbar}>
-        <BlockStyleControl value={this.state.blockStyle} onChange={this.handleBlockStyleChange} />
-      </section>
+      <Fragment>
+        <section className={classes.toolbar}>
+          <BlockStyleControl onChange={this.handleBlockStyleChange} />
+        </section>
+        <Paper className={classes.editor}>
+          <Editor editorState={this.state.editorState} onChange={this.onEditorChange} />
+        </Paper>
+      </Fragment>
     )
   }
 }
