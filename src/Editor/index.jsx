@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from "@material-ui/core/styles"
-import Typography from "@material-ui/core/Typography"
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import { withStyles } from "@material-ui/styles"
+import BlockStyleControl from "../BlockStyleControl";
 
 const styles = {
 }
@@ -11,11 +11,22 @@ export class EditorComponent extends Component {
 
   }
 
+  state = {
+    blockStyle: 'paragraph'
+  }
+
+  handleBlockStyleChange = style => {
+    this.setState({
+      blockStyle: style
+    })
+  }
+
   render() {
+    const { classes } = this.props
     return (
-      <div>
-        <Typography>Hello World</Typography>
-      </div>
+      <section className={classes.toolbar}>
+        <BlockStyleControl value={this.state.blockStyle} onChange={this.handleBlockStyleChange} />
+      </section>
     )
   }
 }
