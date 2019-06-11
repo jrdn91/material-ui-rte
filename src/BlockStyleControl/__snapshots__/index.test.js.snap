@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockStyleControl Should render block style control 1`] = `
+<WithStyles(ForwardRef(FormControl))
+  style={
+    Object {
+      "minWidth": 120,
+    }
+  }
+>
+  <WithStyles(WithFormControlContext(ForwardRef(Select)))
+    inputProps={
+      Object {
+        "id": "typography-simple",
+        "name": "typography",
+      }
+    }
+    onChange={[Function]}
+  >
+    <WithStyles(ForwardRef(MenuItem))
+      key="paragraph"
+      value="paragraph"
+    >
+      Paragraph
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="header-one"
+      value="header-one"
+    >
+      H1
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="header-two"
+      value="header-two"
+    >
+      H2
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="header-three"
+      value="header-three"
+    >
+      H3
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="header-four"
+      value="header-four"
+    >
+      H4
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="header-five"
+      value="header-five"
+    >
+      H5
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="header-six"
+      value="header-six"
+    >
+      H6
+    </WithStyles(ForwardRef(MenuItem))>
+  </WithStyles(WithFormControlContext(ForwardRef(Select)))>
+</WithStyles(ForwardRef(FormControl))>
+`;
