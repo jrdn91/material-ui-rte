@@ -4,9 +4,7 @@ import {Editor, EditorState, RichUtils} from "draft-js"
 import { withStyles } from "@material-ui/styles"
 import Paper from '@material-ui/core/Paper';
 import BlockStyleControl from "../BlockStyleControl";
-
-const styles = {
-}
+import styles from "./styles"
 
 export class EditorComponent extends Component {
   static propTypes = {
@@ -14,13 +12,22 @@ export class EditorComponent extends Component {
   }
 
   state = {
-    blockStyle: 'paragraph'
+    blockStyle: {},
+    editorState: EditorState.createEmpty()
   }
+
+  onEditorChange = editorState => this.setState({ editorState })
 
   handleBlockStyleChange = style => {
     this.setState({
       blockStyle: style
     })
+    this.onEditorChange(
+      RichUtils.toggleBlockType(
+        this.state.editorState,
+        style
+      )
+    );
   }
 
   render() {
