@@ -30,6 +30,7 @@
   "dependencies": {
     "@material-ui/core": "^4.1.0",
     "@material-ui/icons": "^4.1.0",
+    "@material-ui/styles": "^4.1.0",
     "draft-js": "^0.10.5",
     "react": "^16.8.6"
   },
