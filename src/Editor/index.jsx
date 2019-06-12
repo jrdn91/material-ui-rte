@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react"
 import PropTypes from "prop-types"
-import {Editor, EditorState, RichUtils} from "draft-js"
+import {EditorState, RichUtils} from "draft-js"
+import Editor from 'draft-js-plugins-editor';
 import { withStyles } from "@material-ui/styles"
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';

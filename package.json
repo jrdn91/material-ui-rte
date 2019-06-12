@@ -32,6 +32,7 @@
     "@material-ui/icons": "^4.1.0",
     "@material-ui/styles": "^4.1.0",
     "draft-js": "^0.10.5",
+    "draft-js-plugins-editor": "^2.1.1",
     "react": "^16.8.6"
   },
   "peerDependencies": {
