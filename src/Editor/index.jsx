@@ -8,6 +8,7 @@ import BlockStyleControl from "../BlockStyleControl";
 import styles from "./styles"
 import InlineStyleControls from "../InlineStyleControls";
 import InlineAlignmentControls from "../InlineAlignmentControls";
+import ListControls from "../ListControls";
 
 const styleMap = {
   'ALIGN-LEFT': {
@@ -60,6 +61,7 @@ export class EditorComponent extends Component {
         <Toolbar className={classes.toolbar}>
           <BlockStyleControl onChange={this.handleBlockStyleChange} />
           <InlineStyleControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
+          <ListControls editorState={this.state.editorState} onChange={this.handleBlockStyleChange} />
           <InlineAlignmentControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
         </Toolbar>
         <div className={classes.editor} onClick={() => this.refs.editor.focus()}>
