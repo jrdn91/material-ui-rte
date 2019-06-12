@@ -9,26 +9,16 @@ import clsx from 'clsx';
 import styles from "./styles"
 
 const INLINE_STYLES = [
-  {label: 'Left', style: 'ALIGN-LEFT'},
-  {label: 'Center', style: 'ALIGN-CENTER'},
-  {label: 'Right', style: 'ALIGN-RIGHT'}
+  {icon: FormatAlignLeftIcon, style: 'ALIGN-LEFT'},
+  {icon: FormatAlignCenterIcon, style: 'ALIGN-CENTER'},
+  {icon: FormatAlignRightIcon, style: 'ALIGN-RIGHT'}
 ];
 
 const InlineAlignmentControls = (props) => {
   const { classes } = props
   const currentStyle = props.editorState.getCurrentInlineStyle();
   const renderIcon = type => {
-    let IconName;
-    switch (type.label) {
-      case "Left":
-        IconName = FormatAlignLeftIcon
-        break;
-      case "Center":
-        IconName = FormatAlignCenterIcon
-        break;
-      default:
-        IconName = FormatAlignRightIcon
-    }
+    let IconName = type.icon
     return <IconName className={clsx({
       [classes.activeIcon]: currentStyle.has(type.style)
     })} />

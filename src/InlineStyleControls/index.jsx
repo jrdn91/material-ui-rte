@@ -10,26 +10,16 @@ import clsx from 'clsx';
 import styles from "./styles"
 
 const INLINE_STYLES = [
-  {label: 'Bold', style: 'BOLD'},
-  {label: 'Italic', style: 'ITALIC'},
-  {label: 'Underline', style: 'UNDERLINE'}
+  {icon: FormatBoldIcon, style: 'BOLD'},
+  {icon: FormatItalicIcon, style: 'ITALIC'},
+  {icon: FormatUnderlinedIcon, style: 'UNDERLINE'}
 ];
 
 const InlineStyleControls = (props) => {
   const { classes } = props
   const currentStyle = props.editorState.getCurrentInlineStyle();
   const renderIcon = type => {
-    let IconName;
-    switch (type.label) {
-      case "Bold":
-        IconName = FormatBoldIcon
-        break;
-      case "Italic":
-        IconName = FormatItalicIcon
-        break;
-      default:
-        IconName = FormatUnderlinedIcon
-    }
+    let IconName = type.icon
     return <IconName className={clsx({
       [classes.activeIcon]: currentStyle.has(type.style)
     })} />
