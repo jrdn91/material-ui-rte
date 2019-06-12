@@ -1,8 +1,433 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Editor Should render basic editor 1`] = `
-<EditorComponent
-  classes={Object {}}
-  debug={true}
-/>
+exports[`Editor Should render alignment control 1`] = `
+<WithStyles(ForwardRef(Paper))>
+  <WithStyles(ForwardRef(Toolbar))>
+    <BlockStyleControl
+      onChange={[Function]}
+    />
+    <WithStyles(InlineStyleControls)
+      editorState={
+        EditorState {
+          "_immutable": Immutable.Record {
+            "allowUndo": true,
+            "currentContent": Immutable.Record {
+              "entityMap": Object {
+                "__add": [Function],
+                "__create": [Function],
+                "__get": [Function],
+                "__getLastCreatedEntityKey": [Function],
+                "__mergeData": [Function],
+                "__replaceData": [Function],
+                "add": [Function],
+                "create": [Function],
+                "get": [Function],
+                "getLastCreatedEntityKey": [Function],
+                "mergeData": [Function],
+                "replaceData": [Function],
+              },
+              "blockMap": Immutable.OrderedMap {
+                "7fln5": Immutable.Record {
+                  "key": "7fln5",
+                  "type": "unstyled",
+                  "text": "",
+                  "characterList": Immutable.List [],
+                  "depth": 0,
+                  "data": Immutable.Map {},
+                },
+              },
+              "selectionBefore": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+              "selectionAfter": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+            },
+            "decorator": null,
+            "directionMap": Immutable.OrderedMap {
+              "7fln5": "LTR",
+            },
+            "forceSelection": false,
+            "inCompositionMode": false,
+            "inlineStyleOverride": null,
+            "lastChangeType": null,
+            "nativelyRenderedContent": null,
+            "redoStack": Immutable.Stack [],
+            "selection": Immutable.Record {
+              "anchorKey": "7fln5",
+              "anchorOffset": 0,
+              "focusKey": "7fln5",
+              "focusOffset": 0,
+              "isBackward": false,
+              "hasFocus": false,
+            },
+            "treeMap": Immutable.OrderedMap {
+              "7fln5": Immutable.List [
+                Immutable.Record {
+                  "start": 0,
+                  "end": 0,
+                  "decoratorKey": null,
+                  "leaves": Immutable.List [
+                    Immutable.Record {
+                      "start": 0,
+                      "end": 0,
+                    },
+                  ],
+                },
+              ],
+            },
+            "undoStack": Immutable.Stack [],
+          },
+        }
+      }
+      onChange={[Function]}
+    />
+    <WithStyles(ListControls)
+      editorState={
+        EditorState {
+          "_immutable": Immutable.Record {
+            "allowUndo": true,
+            "currentContent": Immutable.Record {
+              "entityMap": Object {
+                "__add": [Function],
+                "__create": [Function],
+                "__get": [Function],
+                "__getLastCreatedEntityKey": [Function],
+                "__mergeData": [Function],
+                "__replaceData": [Function],
+                "add": [Function],
+                "create": [Function],
+                "get": [Function],
+                "getLastCreatedEntityKey": [Function],
+                "mergeData": [Function],
+                "replaceData": [Function],
+              },
+              "blockMap": Immutable.OrderedMap {
+                "7fln5": Immutable.Record {
+                  "key": "7fln5",
+                  "type": "unstyled",
+                  "text": "",
+                  "characterList": Immutable.List [],
+                  "depth": 0,
+                  "data": Immutable.Map {},
+                },
+              },
+              "selectionBefore": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+              "selectionAfter": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+            },
+            "decorator": null,
+            "directionMap": Immutable.OrderedMap {
+              "7fln5": "LTR",
+            },
+            "forceSelection": false,
+            "inCompositionMode": false,
+            "inlineStyleOverride": null,
+            "lastChangeType": null,
+            "nativelyRenderedContent": null,
+            "redoStack": Immutable.Stack [],
+            "selection": Immutable.Record {
+              "anchorKey": "7fln5",
+              "anchorOffset": 0,
+              "focusKey": "7fln5",
+              "focusOffset": 0,
+              "isBackward": false,
+              "hasFocus": false,
+            },
+            "treeMap": Immutable.OrderedMap {
+              "7fln5": Immutable.List [
+                Immutable.Record {
+                  "start": 0,
+                  "end": 0,
+                  "decoratorKey": null,
+                  "leaves": Immutable.List [
+                    Immutable.Record {
+                      "start": 0,
+                      "end": 0,
+                    },
+                  ],
+                },
+              ],
+            },
+            "undoStack": Immutable.Stack [],
+          },
+        }
+      }
+      onChange={[Function]}
+    />
+    <WithStyles(InlineAlignmentControls)
+      editorState={
+        EditorState {
+          "_immutable": Immutable.Record {
+            "allowUndo": true,
+            "currentContent": Immutable.Record {
+              "entityMap": Object {
+                "__add": [Function],
+                "__create": [Function],
+                "__get": [Function],
+                "__getLastCreatedEntityKey": [Function],
+                "__mergeData": [Function],
+                "__replaceData": [Function],
+                "add": [Function],
+                "create": [Function],
+                "get": [Function],
+                "getLastCreatedEntityKey": [Function],
+                "mergeData": [Function],
+                "replaceData": [Function],
+              },
+              "blockMap": Immutable.OrderedMap {
+                "7fln5": Immutable.Record {
+                  "key": "7fln5",
+                  "type": "unstyled",
+                  "text": "",
+                  "characterList": Immutable.List [],
+                  "depth": 0,
+                  "data": Immutable.Map {},
+                },
+              },
+              "selectionBefore": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+              "selectionAfter": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+            },
+            "decorator": null,
+            "directionMap": Immutable.OrderedMap {
+              "7fln5": "LTR",
+            },
+            "forceSelection": false,
+            "inCompositionMode": false,
+            "inlineStyleOverride": null,
+            "lastChangeType": null,
+            "nativelyRenderedContent": null,
+            "redoStack": Immutable.Stack [],
+            "selection": Immutable.Record {
+              "anchorKey": "7fln5",
+              "anchorOffset": 0,
+              "focusKey": "7fln5",
+              "focusOffset": 0,
+              "isBackward": false,
+              "hasFocus": false,
+            },
+            "treeMap": Immutable.OrderedMap {
+              "7fln5": Immutable.List [
+                Immutable.Record {
+                  "start": 0,
+                  "end": 0,
+                  "decoratorKey": null,
+                  "leaves": Immutable.List [
+                    Immutable.Record {
+                      "start": 0,
+                      "end": 0,
+                    },
+                  ],
+                },
+              ],
+            },
+            "undoStack": Immutable.Stack [],
+          },
+        }
+      }
+      onChange={[Function]}
+    />
+  </WithStyles(ForwardRef(Toolbar))>
+  <div
+    onClick={[Function]}
+  >
+    <DraftEditor
+      blockRenderMap={
+        Immutable.Map {
+          "ordered-list-item": Object {
+            "element": "li",
+            "wrapper": <ol
+              className="public-DraftStyleDefault-ol"
+            />,
+          },
+          "header-six": Object {
+            "element": "h6",
+          },
+          "header-four": Object {
+            "element": "h4",
+          },
+          "header-one": Object {
+            "element": "h1",
+          },
+          "unordered-list-item": Object {
+            "element": "li",
+            "wrapper": <ul
+              className="public-DraftStyleDefault-ul"
+            />,
+          },
+          "atomic": Object {
+            "element": "figure",
+          },
+          "unstyled": Object {
+            "aliasedElements": Array [
+              "p",
+            ],
+            "element": "div",
+          },
+          "header-two": Object {
+            "element": "h2",
+          },
+          "code-block": Object {
+            "element": "pre",
+            "wrapper": <pre
+              className="public-DraftStyleDefault-pre"
+            />,
+          },
+          "blockquote": Object {
+            "element": "blockquote",
+          },
+          "header-five": Object {
+            "element": "h5",
+          },
+          "header-three": Object {
+            "element": "h3",
+          },
+        }
+      }
+      blockRendererFn={[Function]}
+      blockStyleFn={[Function]}
+      customStyleMap={
+        Object {
+          "ALIGN-CENTER": Object {
+            "display": "block",
+            "textAlign": "center",
+          },
+          "ALIGN-LEFT": Object {
+            "display": "block",
+            "textAlign": "left",
+          },
+          "ALIGN-RIGHT": Object {
+            "display": "block",
+            "textAlign": "right",
+          },
+        }
+      }
+      editorState={
+        EditorState {
+          "_immutable": Immutable.Record {
+            "allowUndo": true,
+            "currentContent": Immutable.Record {
+              "entityMap": Object {
+                "__add": [Function],
+                "__create": [Function],
+                "__get": [Function],
+                "__getLastCreatedEntityKey": [Function],
+                "__mergeData": [Function],
+                "__replaceData": [Function],
+                "add": [Function],
+                "create": [Function],
+                "get": [Function],
+                "getLastCreatedEntityKey": [Function],
+                "mergeData": [Function],
+                "replaceData": [Function],
+              },
+              "blockMap": Immutable.OrderedMap {
+                "7fln5": Immutable.Record {
+                  "key": "7fln5",
+                  "type": "unstyled",
+                  "text": "",
+                  "characterList": Immutable.List [],
+                  "depth": 0,
+                  "data": Immutable.Map {},
+                },
+              },
+              "selectionBefore": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+              "selectionAfter": Immutable.Record {
+                "anchorKey": "7fln5",
+                "anchorOffset": 0,
+                "focusKey": "7fln5",
+                "focusOffset": 0,
+                "isBackward": false,
+                "hasFocus": false,
+              },
+            },
+            "decorator": null,
+            "directionMap": Immutable.OrderedMap {
+              "7fln5": "LTR",
+            },
+            "forceSelection": false,
+            "inCompositionMode": false,
+            "inlineStyleOverride": null,
+            "lastChangeType": null,
+            "nativelyRenderedContent": null,
+            "redoStack": Immutable.Stack [],
+            "selection": Immutable.Record {
+              "anchorKey": "7fln5",
+              "anchorOffset": 0,
+              "focusKey": "7fln5",
+              "focusOffset": 0,
+              "isBackward": false,
+              "hasFocus": false,
+            },
+            "treeMap": Immutable.OrderedMap {
+              "7fln5": Immutable.List [
+                Immutable.Record {
+                  "start": 0,
+                  "end": 0,
+                  "decoratorKey": null,
+                  "leaves": Immutable.List [
+                    Immutable.Record {
+                      "start": 0,
+                      "end": 0,
+                    },
+                  ],
+                },
+              ],
+            },
+            "undoStack": Immutable.Stack [],
+          },
+        }
+      }
+      keyBindingFn={[Function]}
+      onChange={[Function]}
+      readOnly={false}
+      spellCheck={false}
+      stripPastedStyles={false}
+    />
+  </div>
+</WithStyles(ForwardRef(Paper))>
 `;

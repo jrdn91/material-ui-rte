@@ -1,21 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InlineStyleControls Should render block style control 1`] = `
-<WithStyles(ForwardRef(ButtonGroup))>
+exports[`InlineAlignmentControls Should render alignment control 1`] = `
+<WithStyles(ForwardRef(ButtonGroup))
+  size="small"
+  variant="contained"
+>
   <WithStyles(ForwardRef(Button))
-    variant="contained"
+    key="ALIGN-LEFT"
+    onClick={[Function]}
   >
-    <FormatBoldIcon />
+    <FormatAlignLeftIcon
+      className=""
+    />
   </WithStyles(ForwardRef(Button))>
   <WithStyles(ForwardRef(Button))
-    variant="contained"
+    key="ALIGN-CENTER"
+    onClick={[Function]}
   >
-    <FormatItalicIcon />
+    <FormatAlignCenterIcon
+      className=""
+    />
   </WithStyles(ForwardRef(Button))>
   <WithStyles(ForwardRef(Button))
-    variant="contained"
+    key="ALIGN-RIGHT"
+    onClick={[Function]}
   >
-    <FormatUnderlinedIcon />
+    <FormatAlignRightIcon
+      className=""
+    />
   </WithStyles(ForwardRef(Button))>
 </WithStyles(ForwardRef(ButtonGroup))>
 `;

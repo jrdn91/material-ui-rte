@@ -1,21 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InlineStyleControls Should render block style control 1`] = `
-<WithStyles(ForwardRef(ButtonGroup))>
+exports[`ListControls Should render list control 1`] = `
+<WithStyles(ForwardRef(ButtonGroup))
+  size="small"
+  variant="contained"
+>
   <WithStyles(ForwardRef(Button))
-    variant="contained"
+    key="ordered-list-item"
+    onClick={[Function]}
   >
-    <FormatBoldIcon />
+    <FormatListNumberedIcon
+      className=""
+    />
   </WithStyles(ForwardRef(Button))>
   <WithStyles(ForwardRef(Button))
-    variant="contained"
+    key="unordered-list-item"
+    onClick={[Function]}
   >
-    <FormatItalicIcon />
-  </WithStyles(ForwardRef(Button))>
-  <WithStyles(ForwardRef(Button))
-    variant="contained"
-  >
-    <FormatUnderlinedIcon />
+    <FormatListBulletedIcon
+      className=""
+    />
   </WithStyles(ForwardRef(Button))>
 </WithStyles(ForwardRef(ButtonGroup))>
 `;
