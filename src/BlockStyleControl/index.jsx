@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 
 const BLOCK_TYPES = [
   {label: 'Paragraph', variant: 'body1', style: 'paragraph'},
+  {label: 'Blockquote', variant: 'body1', style: 'blockquote'},
   {label: 'H1', variant: 'h1', style: 'header-one'},
   {label: 'H2', variant: 'h2', style: 'header-two'},
   {label: 'H3', variant: 'h3', style: 'header-three'},
