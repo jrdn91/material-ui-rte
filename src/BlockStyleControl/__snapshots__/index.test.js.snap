@@ -47,6 +47,16 @@ exports[`BlockStyleControl Should render block style control 1`] = `
       </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
+      key="blockquote"
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="body1"
+      >
+        Blockquote
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
       key="header-one"
       onClick={[Function]}
     >

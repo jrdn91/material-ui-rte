@@ -24,10 +24,12 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: [/node_modules/, /public/]
       },
-      // {
-      //   test: /\.s?css$/,
-      //   use: ["style-loader", "css-loader", "sass-loader"]
-      // },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader', 'css-loader',
+        ]
+      }
     ]
   },
   resolve: {

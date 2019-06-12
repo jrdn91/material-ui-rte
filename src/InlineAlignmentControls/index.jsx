@@ -9,9 +9,9 @@ import clsx from 'clsx';
 import styles from "./styles"
 
 const INLINE_STYLES = [
-  {icon: FormatAlignLeftIcon, style: 'ALIGN-LEFT'},
-  {icon: FormatAlignCenterIcon, style: 'ALIGN-CENTER'},
-  {icon: FormatAlignRightIcon, style: 'ALIGN-RIGHT'}
+  {icon: FormatAlignLeftIcon, style: 'text-left'},
+  {icon: FormatAlignCenterIcon, style: 'text-center'},
+  {icon: FormatAlignRightIcon, style: 'text-right'}
 ];
 
 const InlineAlignmentControls = (props) => {

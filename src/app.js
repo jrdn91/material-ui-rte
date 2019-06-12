@@ -4,6 +4,8 @@ import Editor from "../src/Editor"
 import { ThemeProvider } from '@material-ui/styles';
 import theme from "./themes/main"
 
+import "./editor.css"
+
 const styles = {
   editor: {
     margin: "120px auto",

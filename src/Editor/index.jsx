@@ -14,6 +14,8 @@ import InlineAlignmentControls from "../InlineAlignmentControls";
 import ListControls from "../ListControls";
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
+import BlockRenderer from "../BlockRenderer"
+import StyleRenderer from "../StyleRenderer"
 
 const blockBreakoutPlugin = createBlockBreakoutPlugin()
 const dividerPlugin = createDividerPlugin({ blockType: 'divider', component: Divider });
@@ -49,10 +51,43 @@ export class EditorComponent extends Component {
   onEditorChange = editorState => this.setState({ editorState })
 
   handleBlockStyleChange = style => {
+    let newStyle = {}
+    try {
+      const currentStyle = JSON.parse(RichUtils.getCurrentBlockType(this.state.editorState))
+      newStyle = {
+        ...currentStyle,
+        blockStyle: style
+      }
+    } catch(e) {
+      newStyle = {
+        blockStyle: style
+      }
+    }
     this.onEditorChange(
       RichUtils.toggleBlockType(
         this.state.editorState,
-        style
+        JSON.stringify(newStyle)   
+      )
+    );
+  }
+
+  handleAlignmentStyleChange = style => {
+    let newStyle = {}
+    try {
+      const currentStyle = JSON.parse(RichUtils.getCurrentBlockType(this.state.editorState))
+      newStyle = {
+        ...currentStyle,
+        alignmentStyle: style
+      }
+    } catch(e) {
+      newStyle = {
+        alignmentStyle: style
+      }
+    }
+    this.onEditorChange(
+      RichUtils.toggleBlockType(
+        this.state.editorState,
+        JSON.stringify(newStyle)   
       )
     );
   }
@@ -79,15 +114,16 @@ export class EditorComponent extends Component {
           <DividerControl onClick={this.handleDividerControlClick} />
           <InlineStyleControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
           <ListControls editorState={this.state.editorState} onChange={this.handleBlockStyleChange} />
-          <InlineAlignmentControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
+          <InlineAlignmentControls editorState={this.state.editorState} onChange={this.handleAlignmentStyleChange} />
         </Toolbar>
         <div className={classes.editor} onClick={() => this.refs.editor.focus()}>
           <Editor
             ref="editor"
-            customStyleMap={styleMap}
+            blockStyleFn={StyleRenderer}
             editorState={this.state.editorState}
             onChange={this.onEditorChange}
             plugins={plugins}
+            blockRendererFn={BlockRenderer}
           />
         </div>
       </Paper>

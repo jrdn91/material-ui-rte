@@ -6,6 +6,9 @@ exports[`Editor Should render alignment control 1`] = `
     <BlockStyleControl
       onChange={[Function]}
     />
+    <DividerControl
+      onClick={[Function]}
+    />
     <WithStyles(InlineStyleControls)
       editorState={
         EditorState {
@@ -27,8 +30,8 @@ exports[`Editor Should render alignment control 1`] = `
                 "replaceData": [Function],
               },
               "blockMap": Immutable.OrderedMap {
-                "65qm4": Immutable.Record {
-                  "key": "65qm4",
+                "9soc7": Immutable.Record {
+                  "key": "9soc7",
                   "type": "unstyled",
                   "text": "",
                   "characterList": Immutable.List [],
@@ -37,17 +40,17 @@ exports[`Editor Should render alignment control 1`] = `
                 },
               },
               "selectionBefore": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
               },
               "selectionAfter": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
@@ -55,7 +58,7 @@ exports[`Editor Should render alignment control 1`] = `
             },
             "decorator": null,
             "directionMap": Immutable.OrderedMap {
-              "65qm4": "LTR",
+              "9soc7": "LTR",
             },
             "forceSelection": false,
             "inCompositionMode": false,
@@ -64,15 +67,15 @@ exports[`Editor Should render alignment control 1`] = `
             "nativelyRenderedContent": null,
             "redoStack": Immutable.Stack [],
             "selection": Immutable.Record {
-              "anchorKey": "65qm4",
+              "anchorKey": "9soc7",
               "anchorOffset": 0,
-              "focusKey": "65qm4",
+              "focusKey": "9soc7",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "treeMap": Immutable.OrderedMap {
-              "65qm4": Immutable.List [
+              "9soc7": Immutable.List [
                 Immutable.Record {
                   "start": 0,
                   "end": 0,
@@ -113,8 +116,8 @@ exports[`Editor Should render alignment control 1`] = `
                 "replaceData": [Function],
               },
               "blockMap": Immutable.OrderedMap {
-                "65qm4": Immutable.Record {
-                  "key": "65qm4",
+                "9soc7": Immutable.Record {
+                  "key": "9soc7",
                   "type": "unstyled",
                   "text": "",
                   "characterList": Immutable.List [],
@@ -123,17 +126,17 @@ exports[`Editor Should render alignment control 1`] = `
                 },
               },
               "selectionBefore": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
               },
               "selectionAfter": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
@@ -141,7 +144,7 @@ exports[`Editor Should render alignment control 1`] = `
             },
             "decorator": null,
             "directionMap": Immutable.OrderedMap {
-              "65qm4": "LTR",
+              "9soc7": "LTR",
             },
             "forceSelection": false,
             "inCompositionMode": false,
@@ -150,15 +153,15 @@ exports[`Editor Should render alignment control 1`] = `
             "nativelyRenderedContent": null,
             "redoStack": Immutable.Stack [],
             "selection": Immutable.Record {
-              "anchorKey": "65qm4",
+              "anchorKey": "9soc7",
               "anchorOffset": 0,
-              "focusKey": "65qm4",
+              "focusKey": "9soc7",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "treeMap": Immutable.OrderedMap {
-              "65qm4": Immutable.List [
+              "9soc7": Immutable.List [
                 Immutable.Record {
                   "start": 0,
                   "end": 0,
@@ -199,8 +202,8 @@ exports[`Editor Should render alignment control 1`] = `
                 "replaceData": [Function],
               },
               "blockMap": Immutable.OrderedMap {
-                "65qm4": Immutable.Record {
-                  "key": "65qm4",
+                "9soc7": Immutable.Record {
+                  "key": "9soc7",
                   "type": "unstyled",
                   "text": "",
                   "characterList": Immutable.List [],
@@ -209,17 +212,17 @@ exports[`Editor Should render alignment control 1`] = `
                 },
               },
               "selectionBefore": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
               },
               "selectionAfter": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
@@ -227,7 +230,7 @@ exports[`Editor Should render alignment control 1`] = `
             },
             "decorator": null,
             "directionMap": Immutable.OrderedMap {
-              "65qm4": "LTR",
+              "9soc7": "LTR",
             },
             "forceSelection": false,
             "inCompositionMode": false,
@@ -236,15 +239,15 @@ exports[`Editor Should render alignment control 1`] = `
             "nativelyRenderedContent": null,
             "redoStack": Immutable.Stack [],
             "selection": Immutable.Record {
-              "anchorKey": "65qm4",
+              "anchorKey": "9soc7",
               "anchorOffset": 0,
-              "focusKey": "65qm4",
+              "focusKey": "9soc7",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "treeMap": Immutable.OrderedMap {
-              "65qm4": Immutable.List [
+              "9soc7": Immutable.List [
                 Immutable.Record {
                   "start": 0,
                   "end": 0,
@@ -269,6 +272,7 @@ exports[`Editor Should render alignment control 1`] = `
     onClick={[Function]}
   >
     <PluginEditor
+      blockRendererFn={[Function]}
       customStyleMap={
         Object {
           "ALIGN-CENTER": Object {
@@ -309,8 +313,8 @@ exports[`Editor Should render alignment control 1`] = `
                 "replaceData": [Function],
               },
               "blockMap": Immutable.OrderedMap {
-                "65qm4": Immutable.Record {
-                  "key": "65qm4",
+                "9soc7": Immutable.Record {
+                  "key": "9soc7",
                   "type": "unstyled",
                   "text": "",
                   "characterList": Immutable.List [],
@@ -319,17 +323,17 @@ exports[`Editor Should render alignment control 1`] = `
                 },
               },
               "selectionBefore": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
               },
               "selectionAfter": Immutable.Record {
-                "anchorKey": "65qm4",
+                "anchorKey": "9soc7",
                 "anchorOffset": 0,
-                "focusKey": "65qm4",
+                "focusKey": "9soc7",
                 "focusOffset": 0,
                 "isBackward": false,
                 "hasFocus": false,
@@ -337,7 +341,7 @@ exports[`Editor Should render alignment control 1`] = `
             },
             "decorator": null,
             "directionMap": Immutable.OrderedMap {
-              "65qm4": "LTR",
+              "9soc7": "LTR",
             },
             "forceSelection": false,
             "inCompositionMode": false,
@@ -346,15 +350,15 @@ exports[`Editor Should render alignment control 1`] = `
             "nativelyRenderedContent": null,
             "redoStack": Immutable.Stack [],
             "selection": Immutable.Record {
-              "anchorKey": "65qm4",
+              "anchorKey": "9soc7",
               "anchorOffset": 0,
-              "focusKey": "65qm4",
+              "focusKey": "9soc7",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "treeMap": Immutable.OrderedMap {
-              "65qm4": Immutable.List [
+              "9soc7": Immutable.List [
                 Immutable.Record {
                   "start": 0,
                   "end": 0,

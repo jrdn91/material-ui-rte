@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DividerControl Should render alignment control 1`] = `
-<WithStyles(ForwardRef(Button))
-  onClick={[Function]}
+<WithStyles(ForwardRef(ButtonGroup))
+  size="small"
+  variant="contained"
 >
-  <RemoveIcon />
-</WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    onClick={[Function]}
+  >
+    <RemoveIcon />
+  </WithStyles(ForwardRef(Button))>
+</WithStyles(ForwardRef(ButtonGroup))>
 `;
