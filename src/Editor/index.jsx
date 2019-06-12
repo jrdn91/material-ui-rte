@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react"
 import PropTypes from "prop-types"
 import {EditorState, RichUtils} from "draft-js"
 import Editor from 'draft-js-plugins-editor';
+import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
 import { withStyles } from "@material-ui/styles"
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,6 +11,10 @@ import styles from "./styles"
 import InlineStyleControls from "../InlineStyleControls";
 import InlineAlignmentControls from "../InlineAlignmentControls";
 import ListControls from "../ListControls";
+
+const blockBreakoutPlugin = createBlockBreakoutPlugin()
+
+const plugins = [blockBreakoutPlugin]
 
 const styleMap = {
   'ALIGN-LEFT': {
@@ -66,7 +71,13 @@ export class EditorComponent extends Component {
           <InlineAlignmentControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
         </Toolbar>
         <div className={classes.editor} onClick={() => this.refs.editor.focus()}>
-          <Editor ref="editor" customStyleMap={styleMap} editorState={this.state.editorState} onChange={this.onEditorChange} />
+          <Editor
+            ref="editor"
+            customStyleMap={styleMap}
+            editorState={this.state.editorState}
+            onChange={this.onEditorChange}
+            plugins={plugins}
+          />
         </div>
       </Paper>
     )
