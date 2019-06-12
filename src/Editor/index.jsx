@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import {EditorState, RichUtils} from "draft-js"
 import Editor from 'draft-js-plugins-editor';
 import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
+import createDividerPlugin from 'draft-js-divider-plugin';
 import { withStyles } from "@material-ui/styles"
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,10 +12,15 @@ import styles from "./styles"
 import InlineStyleControls from "../InlineStyleControls";
 import InlineAlignmentControls from "../InlineAlignmentControls";
 import ListControls from "../ListControls";
+import DividerControl from "../DividerControl"
+import Divider from "./Divider"
 
 const blockBreakoutPlugin = createBlockBreakoutPlugin()
+const dividerPlugin = createDividerPlugin({ blockType: 'divider', component: Divider });
 
-const plugins = [blockBreakoutPlugin]
+const { addDivider } = dividerPlugin
+
+const plugins = [blockBreakoutPlugin, dividerPlugin]
 
 const styleMap = {
   'ALIGN-LEFT': {
@@ -60,12 +66,17 @@ export class EditorComponent extends Component {
     );
   }
 
+  handleDividerControlClick = () => {
+    this.onEditorChange(addDivider(this.state.editorState))
+  }
+
   render() {
     const { classes } = this.props
     return (
       <Paper className={classes.paper}>
         <Toolbar className={classes.toolbar}>
           <BlockStyleControl onChange={this.handleBlockStyleChange} />
+          <DividerControl onClick={this.handleDividerControlClick} />
           <InlineStyleControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />
           <ListControls editorState={this.state.editorState} onChange={this.handleBlockStyleChange} />
           <InlineAlignmentControls editorState={this.state.editorState} onChange={this.handleInlineStyleChange} />

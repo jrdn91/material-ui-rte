@@ -33,6 +33,7 @@
     "@material-ui/styles": "^4.1.0",
     "draft-js": "^0.10.5",
     "draft-js-block-breakout-plugin": "^2.0.1",
+    "draft-js-divider-plugin": "^0.2.1",
     "draft-js-plugins-editor": "^2.1.1",
     "react": "^16.8.6"
   },
