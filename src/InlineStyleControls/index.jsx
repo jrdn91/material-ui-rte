@@ -5,7 +5,6 @@ import ButtonGroup from '@material-ui/core/ButtonGroup'
 import FormatBoldIcon from "@material-ui/icons/FormatBold"
 import FormatItalicIcon from "@material-ui/icons/FormatItalic"
 import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined"
-import SvgIcon from '@material-ui/core/SvgIcon';
 import clsx from 'clsx';
 import styles from "./styles"
 

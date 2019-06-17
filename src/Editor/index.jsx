@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react"
-import PropTypes from "prop-types"
+import React, { Component } from "react"
 import Draft, {EditorState} from "draft-js"
 import RichUtils from "../RichUtils"
 import blockStyleFn from "../blockStyleFn"
