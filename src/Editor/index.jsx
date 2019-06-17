@@ -94,4 +94,4 @@ export class EditorComponent extends Component {
   }
 }
 
-export default withStyles(styles)(EditorComponent)
+export default withStyles(styles, { withTheme: true })(EditorComponent)
