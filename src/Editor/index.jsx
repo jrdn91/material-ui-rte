@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react"
 import PropTypes from "prop-types"
-import {EditorState, RichUtils} from "draft-js"
+import Draft, {EditorState} from "draft-js"
+import RichUtils from "../RichUtils"
+import blockStyleFn from "../blockStyleFn"
 import Editor from 'draft-js-plugins-editor';
 import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
 import createDividerPlugin from 'draft-js-divider-plugin';
@@ -14,8 +16,73 @@ import InlineAlignmentControls from "../InlineAlignmentControls";
 import ListControls from "../ListControls";
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
-import BlockRenderer from "../BlockRenderer"
-import StyleRenderer from "../StyleRenderer"
+import Typography from "../Typography";
+const { Map } = require('immutable')
+
+const blockRenderMap = Map({
+  'unstyled': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography component="span" />,
+  },
+  'paragraph': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography component="span" />,
+  },
+  'header-one': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography variant="h1" />,
+  },
+  'header-two': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography variant="h2" />,
+  },
+  'header-three': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography variant="h3" />,
+  },
+  'header-four': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography variant="h4" />,
+  },
+  'header-five': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography variant="h5" />,
+  },
+  'header-six': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography variant="h6" />,
+  },
+  'blockquote': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'span',
+    wrapper: <Typography component="blockquote" />,
+  },
+  'ordered-list-item': {
+    // element is used during paste or html conversion to auto match your component;
+    // it is also retained as part of this.props.children and not stripped out
+    element: 'li',
+    wrapper: <Typography component="ol" />,
+  }
+});
+
+const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(blockRenderMap);
 
 const blockBreakoutPlugin = createBlockBreakoutPlugin()
 const dividerPlugin = createDividerPlugin({ blockType: 'divider', component: Divider });
@@ -23,21 +90,6 @@ const dividerPlugin = createDividerPlugin({ blockType: 'divider', component: Div
 const { addDivider } = dividerPlugin
 
 const plugins = [blockBreakoutPlugin, dividerPlugin]
-
-const styleMap = {
-  'ALIGN-LEFT': {
-    textAlign: "left",
-    display: "block"
-  },
-  'ALIGN-CENTER': {
-    textAlign: "center",
-    display: "block"
-  },
-  'ALIGN-RIGHT': {
-    textAlign: "right",
-    display: "block"
-  }
-};
 
 export class EditorComponent extends Component {
   static propTypes = {
@@ -51,45 +103,21 @@ export class EditorComponent extends Component {
   onEditorChange = editorState => this.setState({ editorState })
 
   handleBlockStyleChange = style => {
-    let newStyle = {}
-    try {
-      const currentStyle = JSON.parse(RichUtils.getCurrentBlockType(this.state.editorState))
-      newStyle = {
-        ...currentStyle,
-        blockStyle: style
-      }
-    } catch(e) {
-      newStyle = {
-        blockStyle: style
-      }
-    }
     this.onEditorChange(
       RichUtils.toggleBlockType(
         this.state.editorState,
-        JSON.stringify(newStyle)   
+        style
       )
-    );
+    )
   }
 
   handleAlignmentStyleChange = style => {
-    let newStyle = {}
-    try {
-      const currentStyle = JSON.parse(RichUtils.getCurrentBlockType(this.state.editorState))
-      newStyle = {
-        ...currentStyle,
-        alignmentStyle: style
-      }
-    } catch(e) {
-      newStyle = {
-        alignmentStyle: style
-      }
-    }
     this.onEditorChange(
-      RichUtils.toggleBlockType(
+      RichUtils.toggleAlignment(
         this.state.editorState,
-        JSON.stringify(newStyle)   
+        style
       )
-    );
+    )
   }
 
   handleInlineStyleChange = style => {
@@ -119,11 +147,11 @@ export class EditorComponent extends Component {
         <div className={classes.editor} onClick={() => this.refs.editor.focus()}>
           <Editor
             ref="editor"
-            blockStyleFn={StyleRenderer}
+            blockStyleFn={blockStyleFn}
+            blockRenderMap={extendedBlockRenderMap}
             editorState={this.state.editorState}
             onChange={this.onEditorChange}
             plugins={plugins}
-            blockRendererFn={BlockRenderer}
           />
         </div>
       </Paper>

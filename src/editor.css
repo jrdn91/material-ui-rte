@@ -1,9 +1,24 @@
-.text-left {
-  text-align: left
+span.align-left {
+  text-align: left;
 }
-.text-center {
-  text-align: center
+span.align-center {
+  text-align: center;
 }
-.text-right {
-  text-align: right
+span.align-right {
+  text-align: right;
+}
+
+ol, ul {
+  display: flex;
+  flex-direction: column;
+}
+
+li.align-left {
+  align-self: flex-start;
+}
+li.align-center {
+  align-self: center;
+}
+li.align-right {
+  align-self: flex-end;
 }

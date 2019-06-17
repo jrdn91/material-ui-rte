@@ -9,9 +9,9 @@ import clsx from 'clsx';
 import styles from "./styles"
 
 const INLINE_STYLES = [
-  {icon: FormatAlignLeftIcon, style: 'text-left'},
-  {icon: FormatAlignCenterIcon, style: 'text-center'},
-  {icon: FormatAlignRightIcon, style: 'text-right'}
+  {icon: FormatAlignLeftIcon, style: 'LEFT'},
+  {icon: FormatAlignCenterIcon, style: 'CENTER'},
+  {icon: FormatAlignRightIcon, style: 'RIGHT'}
 ];
 
 const InlineAlignmentControls = (props) => {
@@ -26,7 +26,7 @@ const InlineAlignmentControls = (props) => {
   return (
     <ButtonGroup size="small" variant="contained">
       {INLINE_STYLES.map((type) =>
-        <Button key={type.style} onClick={() => props.onChange(type.style)}>{renderIcon(type)}</Button>
+        <Button key={type.style} onClick={() => props.onChange(type.style, INLINE_STYLES.filter(t => t.style !== type.style).map(t => t.style))}>{renderIcon(type)}</Button>
         // <Button key={type.style} onClick={() => console.log(props.editorState.getBlockTree())}>{renderIcon(type)}</Button>
       )}
     </ButtonGroup>

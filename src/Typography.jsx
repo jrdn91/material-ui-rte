@@ -1,14 +1,11 @@
 import React from 'react'
 import Typography from "@material-ui/core/Typography"
-import { EditorBlock } from "draft-js"
 
-export default function TypographyComponent(props) {
-  const { blockProps } = props
+export default props => {
+  const { children, "data-offset-key": dataOffsetKey, ...rest } = props
   return (
-    <Typography component="span" {...blockProps}>
-      <EditorBlock {...props}>
-        {props.block.getText()}
-      </EditorBlock>
+    <Typography {...rest}>
+      {props.children}
     </Typography>
   )
 }
