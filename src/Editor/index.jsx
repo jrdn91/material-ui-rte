@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import Draft, { EditorState, convertFromRaw, convertToRaw } from "draft-js"
 import RichUtils from "../RichUtils"
 import blockStyleFn from "../blockStyleFn"
@@ -29,11 +29,13 @@ const { addDivider } = dividerPlugin
 const plugins = [blockBreakoutPlugin, dividerPlugin]
 
 export const EditorComponent = (props) => {
-  let initialState = EditorState.createEmpty()
-  if (props.value !== undefined) {
-    initialState = EditorState.createWithContent(convertFromRaw(props.value))
-  }
-  const [editorState, setEditorState] = useState(initialState)
+  const [editorState, setEditorState] = useState(EditorState.createEmpty())
+  useEffect(() => {
+    if (props.value !== undefined) {
+      setEditorState(EditorState.createWithContent(convertFromRaw(props.value)))
+
+    }
+  }, []);
   const editorRef = useRef(null)
 
   const onEditorChange = editorState => {
