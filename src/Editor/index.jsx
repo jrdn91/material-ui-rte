@@ -29,9 +29,6 @@ const { addDivider } = dividerPlugin
 const plugins = [blockBreakoutPlugin, dividerPlugin]
 
 export const EditorComponent = (props) => {
-  // state = {
-  //   editorState: EditorState.createEmpty()
-  // }
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   const editorRef = useRef(null)
 
