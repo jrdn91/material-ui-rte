@@ -6,7 +6,7 @@ A rich text editor build with Draft.js and Material UI
 
 ## Installation
 
-`yarn add https://github.com/CODEANDTRUST/CAT-Form.git`
+`yarn add material-ui-rte`
 
 ## Example
 
