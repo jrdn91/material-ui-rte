@@ -12,7 +12,8 @@ const styles = theme => ({
     marginBottom: 0,
     padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[100],
-    borderRadius: theme.shape.borderRadius
+    borderRadius: theme.shape.borderRadius,
+    cursor: "text"
   }
 })
 
