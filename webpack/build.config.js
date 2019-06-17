@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const CopyPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 
@@ -32,7 +33,10 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.BABEL_ENV': JSON.stringify(nodeEnv)
-    })
+    }),
+    new CopyPlugin([
+      { from: 'src/editor.css', to: 'editor.css' }
+    ]),
     // new BundleAnalyzerPlugin(),
   ].filter(Boolean),
   module: {
