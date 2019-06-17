@@ -38,7 +38,9 @@ export const EditorComponent = (props) => {
 
   const onEditorChange = editorState => {
     setEditorState(editorState)
-    props.onChange(convertToRaw(editorState.getCurrentContent()))
+    if (props.hasOwnProperty('onChange')) {
+      props.onChange(convertToRaw(editorState.getCurrentContent()))
+    }
   }
 
   const handleBlockStyleChange = style => {
