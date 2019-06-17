@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Draft, {EditorState} from "draft-js"
 import RichUtils from "../RichUtils"
 import blockStyleFn from "../blockStyleFn"
+import blockRenderMap from "../blockRenderMap"
 import Editor from 'draft-js-plugins-editor';
 import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
 import createDividerPlugin from 'draft-js-divider-plugin';
@@ -16,71 +17,6 @@ import InlineAlignmentControls from "../InlineAlignmentControls";
 import ListControls from "../ListControls";
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
-import Typography from "../Typography";
-const { Map } = require('immutable')
-
-const blockRenderMap = Map({
-  'unstyled': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography component="span" />,
-  },
-  'paragraph': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography component="span" />,
-  },
-  'header-one': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography variant="h1" />,
-  },
-  'header-two': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography variant="h2" />,
-  },
-  'header-three': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography variant="h3" />,
-  },
-  'header-four': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography variant="h4" />,
-  },
-  'header-five': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography variant="h5" />,
-  },
-  'header-six': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography variant="h6" />,
-  },
-  'blockquote': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'span',
-    wrapper: <Typography component="blockquote" />,
-  },
-  'ordered-list-item': {
-    // element is used during paste or html conversion to auto match your component;
-    // it is also retained as part of this.props.children and not stripped out
-    element: 'li',
-    wrapper: <Typography component="ol" />,
-  }
-});
 
 const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(blockRenderMap);
 
