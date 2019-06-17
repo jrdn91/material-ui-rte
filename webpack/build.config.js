@@ -17,7 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../', 'lib'),
     filename: `index.js`,
-    library: 'CAT-Form',
+    library: 'material-ui-rte',
     libraryTarget: 'umd',
     umdNamedDefine: true,
     /**
