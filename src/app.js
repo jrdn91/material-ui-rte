@@ -4,6 +4,8 @@ import Editor from "../src/Editor"
 import { ThemeProvider } from '@material-ui/styles';
 import theme from "./themes/main"
 
+import editorState from "./editorState.json"
+
 import "./editor.css"
 
 const styles = {
@@ -19,7 +21,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div className={classes.editor}>
-          <Editor />
+          <Editor value={editorState} />
         </div>
       </ThemeProvider>
     )
