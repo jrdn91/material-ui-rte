@@ -1,5 +1,5 @@
 import React from 'react'
-import { withStyles } from "@material-ui/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import FormatAlignLeftIcon from "@material-ui/icons/FormatAlignLeft"
@@ -8,6 +8,8 @@ import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight"
 import clsx from 'clsx';
 import styles from "./styles"
 
+const useStyles = makeStyles(styles);
+
 const INLINE_STYLES = [
   {icon: FormatAlignLeftIcon, style: 'LEFT'},
   {icon: FormatAlignCenterIcon, style: 'CENTER'},
@@ -15,7 +17,7 @@ const INLINE_STYLES = [
 ];
 
 const InlineAlignmentControls = (props) => {
-  const { classes } = props
+  const classes = useStyles()
   const currentStyle = props.editorState.getCurrentInlineStyle();
   const renderIcon = type => {
     let IconName = type.icon
@@ -33,4 +35,4 @@ const InlineAlignmentControls = (props) => {
   );
 };
 
-export default withStyles(styles)(InlineAlignmentControls)
+export default InlineAlignmentControls
