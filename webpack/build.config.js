@@ -1,66 +1,67 @@
-const path = require('path')
-const webpack = require('webpack')
-const CopyPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+const path = require("path")
+const webpack = require("webpack")
+const CopyPlugin = require("copy-webpack-plugin")
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin
 
 /* Environment */
-const nodeEnv = process.env.NODE_ENV || 'development'
-const DEVELOPMENT = nodeEnv === 'development'
-const PRODUCTION = nodeEnv === 'production'
+const nodeEnv = process.env.NODE_ENV || "development"
+const DEVELOPMENT = nodeEnv === "development"
+const PRODUCTION = nodeEnv === "production"
 
 module.exports = {
   mode: nodeEnv,
-  entry: ['regenerator-runtime/runtime', path.resolve(__dirname, '../', 'index.js')],
+  entry: [
+    "regenerator-runtime/runtime",
+    path.resolve(__dirname, "../", "index.js")
+  ],
   externals: {
-    react: 'umd react'
+    react: "umd react"
   },
   output: {
-    path: path.resolve(__dirname, '../', 'lib'),
-    filename: `index.js`,
-    library: 'material-ui-rte',
-    libraryTarget: 'umd',
+    path: path.resolve(__dirname, "../", "lib"),
+    filename: "index.js",
+    library: "material-ui-rte",
+    libraryTarget: "umd",
     umdNamedDefine: true,
     /**
      * UMD modules refer to "window", which breaks SSR.
      * @see https://github.com/webpack/webpack/issues/6522
      */
-    globalObject: `typeof self !== 'undefined' ? self : this`
+    globalObject: "typeof self !== 'undefined' ? self : this"
   },
   optimization: {
     minimize: false
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.BABEL_ENV': JSON.stringify(nodeEnv)
+      "process.env.BABEL_ENV": JSON.stringify(nodeEnv)
     }),
-    new CopyPlugin([
-      { from: 'src/editor.css', to: 'editor.css' }
-    ]),
+    new CopyPlugin([{ from: "src/editor.css", to: "editor.css" }])
     // new BundleAnalyzerPlugin(),
   ].filter(Boolean),
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, '../', 'src'),
+        include: path.resolve(__dirname, "../", "src"),
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
               cacheDirectory: DEVELOPMENT
             }
           },
           {
-            loader: 'eslint-loader'
+            loader: "eslint-loader"
           }
         ]
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: [".js", ".jsx"]
   }
 }
