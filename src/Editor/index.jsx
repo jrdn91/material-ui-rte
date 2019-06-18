@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
+import PropTypes from "prop-types"
 import Draft, { EditorState, convertFromRaw, convertToRaw } from "draft-js"
 import RichUtils from "../RichUtils"
 import blockStyleFn from "../blockStyleFn"
@@ -106,5 +107,7 @@ export const EditorComponent = (props) => {
     </StylesProvider>
   )
 }
+
+EditorComponent.propTypes = {}
 
 export default EditorComponent
