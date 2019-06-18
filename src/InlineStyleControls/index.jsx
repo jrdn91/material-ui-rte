@@ -8,7 +8,9 @@ import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined"
 import clsx from 'clsx';
 import styles from "./styles"
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles, {
+  name: "MuiRte-InlineStyleControls"
+});
 
 const INLINE_STYLES = [
   {icon: FormatBoldIcon, style: 'BOLD'},

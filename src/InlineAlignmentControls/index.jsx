@@ -8,7 +8,9 @@ import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight"
 import clsx from 'clsx';
 import styles from "./styles"
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles, {
+  name: "MuiRte-InlineAlignmentControls"
+});
 
 const INLINE_STYLES = [
   {icon: FormatAlignLeftIcon, style: 'LEFT'},

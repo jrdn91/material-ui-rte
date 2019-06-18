@@ -17,7 +17,9 @@ import ListControls from "../ListControls";
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles, {
+  name: "MuiRte-Editor"
+});
 
 const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(blockRenderMap);
 

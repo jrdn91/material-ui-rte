@@ -7,7 +7,9 @@ import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered"
 import clsx from 'clsx';
 import styles from "./styles"
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles(styles, {
+  name: "MuiRte-InlineListControls"
+});
 
 const LIST_STYLES = [
   {icon: FormatListNumberedIcon, style: 'ordered-list-item'},
