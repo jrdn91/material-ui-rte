@@ -7,6 +7,7 @@ import Editor from 'draft-js-plugins-editor';
 import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
 import createDividerPlugin from 'draft-js-divider-plugin';
 import { makeStyles } from "@material-ui/core/styles"
+import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import BlockStyleControl from "../BlockStyleControl";
@@ -16,6 +17,10 @@ import InlineAlignmentControls from "../InlineAlignmentControls";
 import ListControls from "../ListControls";
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: "mur",
+});
 
 const useStyles = makeStyles(styles, {
   name: "MuiRte-Editor"
@@ -33,7 +38,6 @@ const plugins = [blockBreakoutPlugin, dividerPlugin]
 export const EditorComponent = (props) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   useEffect(() => {
-    console.log("did mount")
     if (props.value) {
       setEditorState(EditorState.createWithContent(convertFromRaw(props.value)))
     }
@@ -79,25 +83,27 @@ export const EditorComponent = (props) => {
   }
   const classes = useStyles()
   return (
-    <Paper className={classes.paper}>
-      <Toolbar className={classes.toolbar}>
-        <BlockStyleControl onChange={handleBlockStyleChange} />
-        <DividerControl onClick={handleDividerControlClick} />
-        <InlineStyleControls editorState={editorState} onChange={handleInlineStyleChange} />
-        <ListControls editorState={editorState} onChange={handleBlockStyleChange} />
-        <InlineAlignmentControls editorState={editorState} onChange={handleAlignmentStyleChange} />
-      </Toolbar>
-      <div className={classes.editor} onClick={() => editorRef.current.focus()}>
-        <Editor
-          ref={editorRef}
-          blockStyleFn={blockStyleFn}
-          blockRenderMap={extendedBlockRenderMap}
-          editorState={editorState}
-          onChange={onEditorChange}
-          plugins={plugins}
-        />
-      </div>
-    </Paper>
+    <StylesProvider generateClassName={generateClassName}>
+      <Paper className={classes.paper}>
+        <Toolbar className={classes.toolbar}>
+          <BlockStyleControl onChange={handleBlockStyleChange} />
+          <DividerControl onClick={handleDividerControlClick} />
+          <InlineStyleControls editorState={editorState} onChange={handleInlineStyleChange} />
+          <ListControls editorState={editorState} onChange={handleBlockStyleChange} />
+          <InlineAlignmentControls editorState={editorState} onChange={handleAlignmentStyleChange} />
+        </Toolbar>
+        <div className={classes.editor} onClick={() => editorRef.current.focus()}>
+          <Editor
+            ref={editorRef}
+            blockStyleFn={blockStyleFn}
+            blockRenderMap={extendedBlockRenderMap}
+            editorState={editorState}
+            onChange={onEditorChange}
+            plugins={plugins}
+          />
+        </div>
+      </Paper>
+    </StylesProvider>
   )
 }
 
