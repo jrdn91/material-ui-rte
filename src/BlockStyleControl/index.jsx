@@ -24,7 +24,7 @@ const BlockStyleControl = props => {
     setAnchorEl(null)
   }
   return (
-    <FormControl style={{ width: "120px" }}>
+    <FormControl style={{ width: "120px" }} id="mur-editor-block-style-controls">
       <Input
         onClick={handleClick}
         value={selectValue.label}
