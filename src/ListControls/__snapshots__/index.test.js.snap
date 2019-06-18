@@ -1,25 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListControls Should render list control 1`] = `
-<WithStyles(ForwardRef(ButtonGroup))
-  size="small"
-  variant="contained"
->
-  <WithStyles(ForwardRef(Button))
-    key="ordered-list-item"
-    onClick={[Function]}
-  >
-    <FormatListNumberedIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-  <WithStyles(ForwardRef(Button))
-    key="unordered-list-item"
-    onClick={[Function]}
-  >
-    <FormatListBulletedIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-</WithStyles(ForwardRef(ButtonGroup))>
-`;
+exports[`ListControls Should render list control 1`] = `ShallowWrapper {}`;

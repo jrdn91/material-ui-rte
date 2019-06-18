@@ -1,33 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InlineAlignmentControls Should render alignment control 1`] = `
-<WithStyles(ForwardRef(ButtonGroup))
-  size="small"
-  variant="contained"
->
-  <WithStyles(ForwardRef(Button))
-    key="ALIGN-LEFT"
-    onClick={[Function]}
-  >
-    <FormatAlignLeftIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-  <WithStyles(ForwardRef(Button))
-    key="ALIGN-CENTER"
-    onClick={[Function]}
-  >
-    <FormatAlignCenterIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-  <WithStyles(ForwardRef(Button))
-    key="ALIGN-RIGHT"
-    onClick={[Function]}
-  >
-    <FormatAlignRightIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-</WithStyles(ForwardRef(ButtonGroup))>
-`;
+exports[`InlineAlignmentControls Should render alignment control 1`] = `ShallowWrapper {}`;

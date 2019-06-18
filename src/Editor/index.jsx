@@ -19,7 +19,7 @@ import DividerControl from "../DividerControl"
 import Divider from "./Divider"
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: "mur",
+  productionPrefix: "mur"
 });
 
 const useStyles = makeStyles(styles, {

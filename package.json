@@ -14,7 +14,6 @@
   },
   "jest": {
     "snapshotSerializers": [
-      "enzyme-to-json/serializer",
       "jss-snapshot-serializer"
     ],
     "setupFiles": [

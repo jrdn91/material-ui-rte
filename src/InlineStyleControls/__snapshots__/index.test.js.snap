@@ -1,33 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InlineStyleControls Should render block style control 1`] = `
-<WithStyles(ForwardRef(ButtonGroup))
-  size="small"
-  variant="contained"
->
-  <WithStyles(ForwardRef(Button))
-    key="BOLD"
-    onClick={[Function]}
-  >
-    <FormatBoldIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-  <WithStyles(ForwardRef(Button))
-    key="ITALIC"
-    onClick={[Function]}
-  >
-    <FormatItalicIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-  <WithStyles(ForwardRef(Button))
-    key="UNDERLINE"
-    onClick={[Function]}
-  >
-    <FormatUnderlinedIcon
-      className=""
-    />
-  </WithStyles(ForwardRef(Button))>
-</WithStyles(ForwardRef(ButtonGroup))>
-`;
+exports[`InlineStyleControls Should render block style control 1`] = `ShallowWrapper {}`;
