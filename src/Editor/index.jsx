@@ -31,9 +31,9 @@ const plugins = [blockBreakoutPlugin, dividerPlugin]
 export const EditorComponent = (props) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   useEffect(() => {
-    if (props.value !== undefined) {
+    console.log("did mount")
+    if (props.value) {
       setEditorState(EditorState.createWithContent(convertFromRaw(props.value)))
-
     }
   }, []);
   const editorRef = useRef(null)
