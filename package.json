@@ -1,7 +1,7 @@
 {
   "name": "material-ui-rte",
   "author": "Jordan Riser",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A rich text editor build with Draft.js and Material UI",
   "main": "./lib/index.js",
   "eslintConfig": {
