@@ -1,19 +1,19 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack")
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-const packageJson = require('../package.json');
-const { version, name } = packageJson;
+const packageJson = require("../package.json")
+const { version, name } = packageJson
 
 module.exports = {
   entry: "./src/index.js",
-  devtool: 'eval-cheap-module-source-map',
+  devtool: "eval-cheap-module-source-map",
   output: {
     path: path.join(__dirname, "../", "dev"),
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dev'),
+    contentBase: path.join(__dirname, "dev"),
     historyApiFallback: true,
     port: 4400
   },
@@ -26,9 +26,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader', 'css-loader',
-        ]
+        loaders: ["style-loader", "css-loader"]
       }
     ]
   },
@@ -40,8 +38,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: name,
       version,
-      template: './src/html/index.html',
+      template: "./src/html/index.html",
       inject: true
     })
   ]
-};
+}
