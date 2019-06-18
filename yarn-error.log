@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/jordanriser/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test- u
+  /Users/jordanriser/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
 
 PATH: 
   /Applications/MAMP/bin/php/php7.1.8/bin:/Applications/MAMP/Library/bin:/usr/local/share/python:/Users/jordanriser/.fastlane/bin:/Users/jordanriser/.rbenv/shims:/Users/jordanriser/.nvm/versions/node/v8.10.0/bin:/Users/jordanriser/.rvm/gems/ruby-2.6.0/bin:/Users/jordanriser/.rvm/gems/ruby-2.6.0@global/bin:/Users/jordanriser/.rvm/rubies/ruby-2.6.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/jordanriser/.rvm/bin:/Users/jordanriser/Library/Android/sdk/emulator:/Users/jordanriser/Library/Android/sdk/tools:/Users/jordanriser/Library/Android/sdk/tools/bin:/Users/jordanriser/Library/Android/sdk/platform-tools
@@ -17,8 +17,7 @@ npm manifest:
   {
     "name": "material-ui-rte",
     "author": "Jordan Riser",
-    "version": "0.0.1",
-    "private": true,
+    "version": "0.1.2",
     "description": "A rich text editor build with Draft.js and Material UI",
     "main": "./lib/index.js",
     "eslintConfig": {
@@ -27,11 +26,16 @@ npm manifest:
     "scripts": {
       "build": "NODE_ENV=production webpack --config webpack/build.config.js",
       "start": "NODE_ENV=developement webpack-dev-server --config webpack/dev.config.js",
-      "test": "jest"
+      "test": "jest --watch"
     },
     "jest": {
-      "snapshotSerializers": ["enzyme-to-json/serializer"],
-      "setupFiles": ["./src/setupTests.js"]
+      "snapshotSerializers": [
+        "enzyme-to-json/serializer",
+        "jss-snapshot-serializer"
+      ],
+      "setupFiles": [
+        "./src/setupTests.js"
+      ]
     },
     "browserslist": [
       ">0.2%",
@@ -40,13 +44,17 @@ npm manifest:
       "not op_mini all"
     ],
     "dependencies": {
-      "@material-ui/core": "^4.1.0",
-      "@material-ui/icons": "^4.1.0",
       "draft-js": "^0.10.5",
-      "react": "^16.8.6"
+      "draft-js-block-breakout-plugin": "^2.0.1",
+      "draft-js-divider-plugin": "^0.2.1",
+      "draft-js-plugins-editor": "^2.1.1",
+      "immutable": "^4.0.0-rc.12"
     },
     "peerDependencies": {
-      "react": "^16.8.4"
+      "@material-ui/core": "^4.1.0",
+      "@material-ui/icons": "^4.1.0",
+      "@material-ui/styles": "^4.1.0",
+      "react": "^16.8.6"
     },
     "devDependencies": {
       "@babel/core": "^7.1.0",
@@ -58,10 +66,15 @@ npm manifest:
       "@babel/preset-env": "^7.4.5",
       "@babel/preset-flow": "^7.0.0",
       "@babel/preset-react": "^7.0.0",
+      "@material-ui/core": "^4.1.0",
+      "@material-ui/icons": "^4.1.0",
+      "@material-ui/styles": "^4.1.0",
       "babel-eslint": "^10.0.1",
       "babel-jest": "^24.8.0",
       "babel-loader": "^8.0.4",
       "babel-plugin-ramda": "^2.0.0",
+      "copy-webpack-plugin": "^5.0.3",
+      "css-loader": "^3.0.0",
       "enzyme": "^3.10.0",
       "enzyme-adapter-react-16": "^1.14.0",
       "enzyme-to-json": "^3.3.5",
@@ -74,10 +87,13 @@ npm manifest:
       "eslint-plugin-react": "^7.12.4",
       "html-webpack-plugin": "^3.2.0",
       "jest": "^24.8.0",
+      "jss-snapshot-serializer": "^1.0.0",
       "lodash": "^4.17.11",
       "prop-types": "^15.7.2",
+      "react": "^16.8.6",
       "react-dom": "^16.8.4",
       "react-test-renderer": "^16.8.6",
+      "style-loader": "^0.23.1",
       "webpack": "^4.26.1",
       "webpack-bundle-analyzer": "^3.0.3",
       "webpack-cli": "^3.1.2",
@@ -909,12 +925,12 @@ Lockfile:
       "@types/yargs" "^12.0.9"
   
   "@material-ui/core@^4.1.0":
-    version "4.1.0"
-    resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.1.0.tgz#4a350b5c77f4427a35b6c6d46e100c95e4eaaafd"
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.1.1.tgz#11e703f3d44d84750c9b829f13bb08ad8949e12a"
     dependencies:
       "@babel/runtime" "^7.2.0"
-      "@material-ui/styles" "^4.1.0"
-      "@material-ui/system" "^4.1.0"
+      "@material-ui/styles" "^4.1.1"
+      "@material-ui/system" "^4.2.0"
       "@material-ui/types" "^4.1.0"
       "@material-ui/utils" "^4.1.0"
       "@types/react-transition-group" "^2.0.16"
@@ -932,14 +948,14 @@ Lockfile:
       warning "^4.0.1"
   
   "@material-ui/icons@^4.1.0":
-    version "4.1.0"
-    resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.1.0.tgz#583f09918f0217948485a548c18e3088ede3a352"
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.2.0.tgz#cd0b6521288c5e6c0b084d6defec37a4491e0c51"
     dependencies:
       "@babel/runtime" "^7.2.0"
   
-  "@material-ui/styles@^4.1.0":
-    version "4.1.0"
-    resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.1.0.tgz#a8a200bf81c4a603a298b7df114d66b624b7fab1"
+  "@material-ui/styles@^4.1.0", "@material-ui/styles@^4.1.1":
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.1.1.tgz#16e9d4770bd18b85c25fd3cb925043af5fa37f36"
     dependencies:
       "@babel/runtime" "^7.2.0"
       "@emotion/hash" "^0.7.1"
@@ -960,9 +976,9 @@ Lockfile:
       prop-types "^15.7.2"
       warning "^4.0.1"
   
-  "@material-ui/system@^4.1.0":
-    version "4.1.0"
-    resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.1.0.tgz#c850a625d1a5d5440e1ad039d2503da63f8c6727"
+  "@material-ui/system@^4.2.0":
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.2.0.tgz#1c0759f1168bf871a7970239dc781b7bf9dfd010"
     dependencies:
       "@babel/runtime" "^7.2.0"
       deepmerge "^3.0.0"
@@ -1058,8 +1074,8 @@ Lockfile:
       "@types/react" "*"
   
   "@types/react@*":
-    version "16.8.19"
-    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.19.tgz#629154ef05e2e1985cdde94477deefd823ad9be3"
+    version "16.8.20"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.20.tgz#4f633ecbd0a4d56d0ccc50fff6f9321bbcd7d583"
     dependencies:
       "@types/prop-types" "*"
       csstype "^2.2.0"
@@ -1810,7 +1826,7 @@ Lockfile:
       no-case "^2.2.0"
       upper-case "^1.1.1"
   
-  camelcase@^5.0.0:
+  camelcase@^5.0.0, camelcase@^5.3.1:
     version "5.3.1"
     resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   
@@ -2089,6 +2105,23 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   
+  copy-webpack-plugin@^5.0.3:
+    version "5.0.3"
+    resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-5.0.3.tgz#2179e3c8fd69f13afe74da338896f1f01a875b5c"
+    dependencies:
+      cacache "^11.3.2"
+      find-cache-dir "^2.1.0"
+      glob-parent "^3.1.0"
+      globby "^7.1.1"
+      is-glob "^4.0.1"
+      loader-utils "^1.2.3"
+      minimatch "^3.0.4"
+      normalize-path "^3.0.0"
+      p-limit "^2.2.0"
+      schema-utils "^1.0.0"
+      serialize-javascript "^1.7.0"
+      webpack-log "^2.0.0"
+  
   core-js-compat@^3.1.1:
     version "3.1.3"
     resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.1.3.tgz#0cc3ba4c7f62928c2837e1cffbe8dc78b4f1ae14"
@@ -2163,6 +2196,23 @@ Lockfile:
       randombytes "^2.0.0"
       randomfill "^1.0.3"
   
+  css-loader@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.0.0.tgz#bdd48a4921eefedf1f0a55266585944d4e5efc63"
+    dependencies:
+      camelcase "^5.3.1"
+      cssesc "^3.0.0"
+      icss-utils "^4.1.1"
+      loader-utils "^1.2.3"
+      normalize-path "^3.0.0"
+      postcss "^7.0.17"
+      postcss-modules-extract-imports "^2.0.0"
+      postcss-modules-local-by-default "^3.0.2"
+      postcss-modules-scope "^2.1.0"
+      postcss-modules-values "^3.0.0"
+      postcss-value-parser "^4.0.0"
+      schema-utils "^1.0.0"
+  
   css-select@^1.1.0, css-select@~1.2.0:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858"
@@ -2173,8 +2223,8 @@ Lockfile:
       nth-check "~1.0.1"
   
   css-vendor@^2.0.1:
-    version "2.0.2"
-    resolved "https://registry.yarnpkg.com/css-vendor/-/css-vendor-2.0.2.tgz#dd75b41064944c8eaa001796a204782164c69dfd"
+    version "2.0.4"
+    resolved "https://registry.yarnpkg.com/css-vendor/-/css-vendor-2.0.4.tgz#c605f4c17f454e4ad1db206e04128da1da1d31dd"
     dependencies:
       "@babel/runtime" "^7.3.1"
       is-in-browser "^1.0.2"
@@ -2182,6 +2232,10 @@ Lockfile:
   css-what@2.1:
     version "2.1.3"
     resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2"
+  
+  cssesc@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   
   cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
     version "0.3.6"
@@ -2253,6 +2307,10 @@ Lockfile:
     version "0.2.0"
     resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   
+  decorate-component-with-props@^1.0.2:
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/decorate-component-with-props/-/decorate-component-with-props-1.1.0.tgz#b496c814c6a2aba0cf2ad26e44cbedb8ead42f15"
+  
   deep-equal@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
@@ -2266,8 +2324,8 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   
   deepmerge@^3.0.0:
-    version "3.2.0"
-    resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.0.tgz#58ef463a57c08d376547f8869fdc5bcee957f44e"
+    version "3.2.1"
+    resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.1.tgz#76a1f47854bcfcd66ee9a948d110540a8e12b261"
   
   default-gateway@^4.2.0:
     version "4.2.0"
@@ -2364,6 +2422,12 @@ Lockfile:
       miller-rabin "^4.0.0"
       randombytes "^2.0.0"
   
+  dir-glob@^2.0.0:
+    version "2.2.2"
+    resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-2.2.2.tgz#fa09f0694153c8918b18ba0deafae94769fc50c4"
+    dependencies:
+      path-type "^3.0.0"
+  
   discontinuous-range@1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/discontinuous-range/-/discontinuous-range-1.0.0.tgz#e38331f0844bba49b9a9cb71c771585aab1bc65a"
@@ -2456,6 +2520,30 @@ Lockfile:
     dependencies:
       dom-serializer "0"
       domelementtype "1"
+  
+  draft-js-block-breakout-plugin@^2.0.1:
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/draft-js-block-breakout-plugin/-/draft-js-block-breakout-plugin-2.0.1.tgz#a38e3bd68d9538d7af15d4d966844d6e6d2ad850"
+    dependencies:
+      immutable "~3.7.4"
+  
+  draft-js-divider-plugin@^0.2.1:
+    version "0.2.1"
+    resolved "https://registry.yarnpkg.com/draft-js-divider-plugin/-/draft-js-divider-plugin-0.2.1.tgz#5dbbb14216a0d77bf8206797ceb4c7c77df46db7"
+    dependencies:
+      decorate-component-with-props "^1.0.2"
+      prop-types "^15.5.8"
+      union-class-names "^1.0.0"
+  
+  draft-js-plugins-editor@^2.1.1:
+    version "2.1.1"
+    resolved "https://registry.yarnpkg.com/draft-js-plugins-editor/-/draft-js-plugins-editor-2.1.1.tgz#7c9aedd696737c6ddf45d47c978bd764ef33f688"
+    dependencies:
+      decorate-component-with-props "^1.0.2"
+      find-with-regex "^1.1.3"
+      immutable "~3.7.4"
+      prop-types "^15.5.8"
+      union-class-names "^1.0.0"
   
   draft-js@^0.10.5:
     version "0.10.5"
@@ -3073,7 +3161,7 @@ Lockfile:
       mkdirp "^0.5.1"
       pkg-dir "^1.0.0"
   
-  find-cache-dir@^2.0.0:
+  find-cache-dir@^2.0.0, find-cache-dir@^2.1.0:
     version "2.1.0"
     resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-2.1.0.tgz#8d0f94cd13fe43c6c7c261a0d86115ca918c05f7"
     dependencies:
@@ -3099,6 +3187,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/find-up/-/find-up-3.0.0.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
     dependencies:
       locate-path "^3.0.0"
+  
+  find-with-regex@^1.1.3:
+    version "1.1.3"
+    resolved "https://registry.yarnpkg.com/find-with-regex/-/find-with-regex-1.1.3.tgz#d6c6f2debee898d36b6a77e05709b13dd5dc8a26"
   
   findup-sync@^2.0.0:
     version "2.0.0"
@@ -3295,6 +3387,17 @@ Lockfile:
       object-assign "^4.0.1"
       pify "^2.0.0"
       pinkie-promise "^2.0.0"
+  
+  globby@^7.1.1:
+    version "7.1.1"
+    resolved "https://registry.yarnpkg.com/globby/-/globby-7.1.1.tgz#fb2ccff9401f8600945dfada97440cca972b8680"
+    dependencies:
+      array-union "^1.0.1"
+      dir-glob "^2.0.0"
+      glob "^7.1.2"
+      ignore "^3.3.5"
+      pify "^3.0.0"
+      slash "^1.0.0"
   
   graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
     version "4.1.15"
@@ -3553,6 +3656,12 @@ Lockfile:
     dependencies:
       safer-buffer ">= 2.1.2 < 3"
   
+  icss-utils@^4.0.0, icss-utils@^4.1.1:
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-4.1.1.tgz#21170b53789ee27447c2f47dd683081403f9a467"
+    dependencies:
+      postcss "^7.0.14"
+  
   ieee754@^1.1.4:
     version "1.1.13"
     resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
@@ -3567,9 +3676,17 @@ Lockfile:
     dependencies:
       minimatch "^3.0.4"
   
+  ignore@^3.3.5:
+    version "3.3.10"
+    resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
+  
   ignore@^4.0.6:
     version "4.0.6"
     resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
+  
+  immutable@^4.0.0-rc.12:
+    version "4.0.0-rc.12"
+    resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0-rc.12.tgz#ca59a7e4c19ae8d9bf74a97bdf0f6e2f2a5d0217"
   
   immutable@~3.7.4:
     version "3.7.6"
@@ -3592,6 +3709,10 @@ Lockfile:
   imurmurhash@^0.1.4:
     version "0.1.4"
     resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
+  
+  indexes-of@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
   
   indexof@0.0.1:
     version "0.0.1"
@@ -3773,7 +3894,7 @@ Lockfile:
     dependencies:
       is-extglob "^2.1.0"
   
-  is-glob@^4.0.0:
+  is-glob@^4.0.0, is-glob@^4.0.1:
     version "4.0.1"
     resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.1.tgz#7567dbe9f2f5e2467bc77ab83c4a29482407a5dc"
     dependencies:
@@ -4416,6 +4537,10 @@ Lockfile:
       "@babel/runtime" "^7.3.1"
       css-vendor "^2.0.1"
       jss "10.0.0-alpha.17"
+  
+  jss-snapshot-serializer@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/jss-snapshot-serializer/-/jss-snapshot-serializer-1.0.0.tgz#963395f83dddc355964290393b05e734c69dde7b"
   
   jss@10.0.0-alpha.17:
     version "10.0.0-alpha.17"
@@ -5220,7 +5345,7 @@ Lockfile:
     dependencies:
       p-try "^1.0.0"
   
-  p-limit@^2.0.0:
+  p-limit@^2.0.0, p-limit@^2.2.0:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.2.0.tgz#417c9941e6027a9abcba5092dd2904e255b5fbc2"
     dependencies:
@@ -5464,6 +5589,55 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   
+  postcss-modules-extract-imports@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/postcss-modules-extract-imports/-/postcss-modules-extract-imports-2.0.0.tgz#818719a1ae1da325f9832446b01136eeb493cd7e"
+    dependencies:
+      postcss "^7.0.5"
+  
+  postcss-modules-local-by-default@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-modules-local-by-default/-/postcss-modules-local-by-default-3.0.2.tgz#e8a6561be914aaf3c052876377524ca90dbb7915"
+    dependencies:
+      icss-utils "^4.1.1"
+      postcss "^7.0.16"
+      postcss-selector-parser "^6.0.2"
+      postcss-value-parser "^4.0.0"
+  
+  postcss-modules-scope@^2.1.0:
+    version "2.1.0"
+    resolved "https://registry.yarnpkg.com/postcss-modules-scope/-/postcss-modules-scope-2.1.0.tgz#ad3f5bf7856114f6fcab901b0502e2a2bc39d4eb"
+    dependencies:
+      postcss "^7.0.6"
+      postcss-selector-parser "^6.0.0"
+  
+  postcss-modules-values@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/postcss-modules-values/-/postcss-modules-values-3.0.0.tgz#5b5000d6ebae29b4255301b4a3a54574423e7f10"
+    dependencies:
+      icss-utils "^4.0.0"
+      postcss "^7.0.6"
+  
+  postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
+    version "6.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.2.tgz#934cf799d016c83411859e09dcecade01286ec5c"
+    dependencies:
+      cssesc "^3.0.0"
+      indexes-of "^1.0.1"
+      uniq "^1.0.1"
+  
+  postcss-value-parser@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.0.0.tgz#99a983d365f7b2ad8d0f9b8c3094926eab4b936d"
+  
+  postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.17, postcss@^7.0.5, postcss@^7.0.6:
+    version "7.0.17"
+    resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.17.tgz#4da1bdff5322d4a0acaab4d87f3e782436bad31f"
+    dependencies:
+      chalk "^2.4.2"
+      source-map "^0.6.1"
+      supports-color "^6.1.0"
+  
   prelude-ls@~1.1.2:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -5529,7 +5703,7 @@ Lockfile:
       object.assign "^4.1.0"
       reflect.ownkeys "^0.2.0"
   
-  prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+  prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     dependencies:
@@ -6189,6 +6363,10 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.0.tgz#77d9622ff909080f1c19e5f4a1df0c1b0a27b88c"
   
+  slash@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
+  
   slash@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
@@ -6479,6 +6657,13 @@ Lockfile:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   
+  style-loader@^0.23.1:
+    version "0.23.1"
+    resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
+    dependencies:
+      loader-utils "^1.1.0"
+      schema-utils "^1.0.0"
+  
   supports-color@^5.3.0, supports-color@^5.5.0:
     version "5.5.0"
     resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
@@ -6733,6 +6918,10 @@ Lockfile:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.0.5.tgz#a9cc6cc7ce63a0a3023fc99e341b94431d405a57"
   
+  union-class-names@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/union-class-names/-/union-class-names-1.0.0.tgz#9259608adacc39094a2b0cfe16c78e6200617847"
+  
   union-value@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/union-value/-/union-value-1.0.0.tgz#5c71c34cb5bad5dcebe3ea0cd08207ba5aa1aea4"
@@ -6741,6 +6930,10 @@ Lockfile:
       get-value "^2.0.6"
       is-extendable "^0.1.1"
       set-value "^0.4.3"
+  
+  uniq@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/uniq/-/uniq-1.0.1.tgz#b31c5ae8254844a3a8281541ce2b04b865a734ff"
   
   unique-filename@^1.1.1:
     version "1.1.1"
@@ -7174,14 +7367,17 @@ Lockfile:
       yargs-parser "^11.1.1"
 
 Trace: 
-  Error: Command "test-" not found. Did you mean "test"?
-      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
-      at runCommand (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87312:22)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87412:14)
+  Error: Command failed.
+  Exit code: 2
+  Command: sh
+  Arguments: -c NODE_ENV=production webpack --config webpack/build.config.js
+  Directory: /Users/jordanriser/workspace/material-ui-rte
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
