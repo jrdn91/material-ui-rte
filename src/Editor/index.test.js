@@ -4,8 +4,8 @@ import Editor from "./index"
 
 describe("Editor", () => {
   it("Should render alignment control", () => {
-    const component = shallow(<Editor />);
-  
-    expect(component).toMatchSnapshot();
-  });
-});
+    const component = shallow(<Editor />)
+
+    expect(component).toMatchSnapshot()
+  })
+})

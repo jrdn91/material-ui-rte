@@ -7,12 +7,12 @@ describe("InlineStyleControls", () => {
   let editorState
 
   beforeEach(() => {
-    editorState= EditorState.createEmpty()
+    editorState = EditorState.createEmpty()
   })
 
   it("Should render block style control", () => {
-    const component = shallow(<InlineStyleControls editorState={editorState} />);
-  
-    expect(component).toMatchSnapshot();
-  });
-});
+    const component = shallow(<InlineStyleControls editorState={editorState} />)
+
+    expect(component).toMatchSnapshot()
+  })
+})

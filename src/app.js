@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { withStyles } from "@material-ui/styles"
 import Editor from "../src/Editor"
-import { ThemeProvider } from '@material-ui/styles';
+import { ThemeProvider } from "@material-ui/styles"
 import theme from "./themes/main"
 
 import editorState from "./editorState.json"

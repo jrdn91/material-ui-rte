@@ -7,12 +7,12 @@ describe("ListControls", () => {
   let editorState
 
   beforeEach(() => {
-    editorState= EditorState.createEmpty()
+    editorState = EditorState.createEmpty()
   })
 
   it("Should render list control", () => {
-    const component = shallow(<ListControls editorState={editorState} />);
-  
-    expect(component).toMatchSnapshot();
-  });
-});
+    const component = shallow(<ListControls editorState={editorState} />)
+
+    expect(component).toMatchSnapshot()
+  })
+})

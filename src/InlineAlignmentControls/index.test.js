@@ -7,12 +7,14 @@ describe("InlineAlignmentControls", () => {
   let editorState
 
   beforeEach(() => {
-    editorState= EditorState.createEmpty()
+    editorState = EditorState.createEmpty()
   })
 
   it("Should render alignment control", () => {
-    const component = shallow(<InlineAlignmentControls editorState={editorState} />);
-  
-    expect(component).toMatchSnapshot();
-  });
-});
+    const component = shallow(
+      <InlineAlignmentControls editorState={editorState} />
+    )
+
+    expect(component).toMatchSnapshot()
+  })
+})
