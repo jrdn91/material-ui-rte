@@ -77,7 +77,9 @@ export const EditorComponent = props => {
     <StylesProvider generateClassName={generateClassName}>
       <Paper className={classes.paper}>
         <Toolbar className={classes.toolbar}>
-          <BlockStyleControl onChange={handleBlockStyleChange} />
+          {props.blockStyleControls !== false &&
+            <BlockStyleControl onChange={handleBlockStyleChange} />
+          }
           <DividerControl onClick={handleDividerControlClick} />
           <InlineStyleControls
             editorState={editorState}
@@ -110,6 +112,24 @@ export const EditorComponent = props => {
   )
 }
 
-EditorComponent.propTypes = {}
+EditorComponent.propTypes = {
+  blockStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf([
+      "paragraph",
+      "blockquote",
+      "header-one",
+      "header-two",
+      "header-three",
+      "header-four",
+      "header-five",
+      "header-six"
+    ])
+  ])
+}
+
+EditorComponent.defaultProps = {
+  blockStyleControls: true
+}
 
 export default EditorComponent
