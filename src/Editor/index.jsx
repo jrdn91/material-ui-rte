@@ -182,7 +182,8 @@ EditorComponent.propTypes = {
 
 EditorComponent.defaultProps = {
   blockStyleControls: true,
-  dividerControl: true
+  dividerControl: true,
+  inlineStyleControls: true
 }
 
 export default EditorComponent
