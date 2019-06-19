@@ -1,9 +1,9 @@
 import React from "react"
 import { shallow } from "enzyme"
 import { EditorState } from "draft-js"
-import InlineAlignmentControls from "./index"
+import AlignmentControls from "./index"
 
-describe("InlineAlignmentControls", () => {
+describe("AlignmentControls", () => {
   let editorState
 
   beforeEach(() => {
@@ -11,9 +11,7 @@ describe("InlineAlignmentControls", () => {
   })
 
   it("Should render alignment control", () => {
-    const component = shallow(
-      <InlineAlignmentControls editorState={editorState} />
-    )
+    const component = shallow(<AlignmentControls editorState={editorState} />)
 
     expect(component).toMatchSnapshot()
   })

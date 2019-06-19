@@ -14,7 +14,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import BlockStyleControl from "../BlockStyleControl"
 import styles from "./styles"
 import InlineStyleControls from "../InlineStyleControls"
-import InlineAlignmentControls from "../InlineAlignmentControls"
+import AlignmentControls from "../AlignmentControls"
 import ListControls from "../ListControls"
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
@@ -100,7 +100,7 @@ export const EditorComponent = props => {
               onChange={handleBlockStyleChange}
             />
           )}
-          <InlineAlignmentControls
+          <AlignmentControls
             editorState={editorState}
             onChange={handleAlignmentStyleChange}
           />

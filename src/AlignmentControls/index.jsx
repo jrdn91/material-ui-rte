@@ -9,7 +9,7 @@ import clsx from "clsx"
 import styles from "./styles"
 
 const useStyles = makeStyles(styles, {
-  name: "MuiRte-InlineAlignmentControls"
+  name: "MuiRte-AlignmentControls"
 })
 
 const INLINE_STYLES = [
@@ -18,7 +18,7 @@ const INLINE_STYLES = [
   { icon: FormatAlignRightIcon, style: "RIGHT" }
 ]
 
-const InlineAlignmentControls = props => {
+const AlignmentControls = props => {
   const classes = useStyles()
   const currentStyle = props.editorState.getCurrentInlineStyle()
   const renderIcon = type => {
@@ -55,4 +55,4 @@ const InlineAlignmentControls = props => {
   )
 }
 
-export default InlineAlignmentControls
+export default AlignmentControls
