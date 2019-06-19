@@ -14,7 +14,24 @@ Filling this out later
 
 ## API
 
-Filling this out later
+### Editor Props
+
+#### Block styles (headings, paragraph, etc.)
+
+```js
+  blockStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("paragraph", "blockquote", "header-one", "header-two", "header-three", "header-four", "header-five", "header-six")
+  ])
+
+  defaultProps = {
+    blockStyleControls: true
+  }
+```
+
+Specifying a `boolean` will completely show / hide the controls altogether.
+
+Specifying an `array` allows to only include what is passed in the dropdown. So passing `["paragraph", "header-one"]` will only render the `paragraph` and `h1` block styles as options in the dropdown
 
 ## Development
 
