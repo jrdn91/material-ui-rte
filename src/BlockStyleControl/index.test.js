@@ -1,7 +1,7 @@
 import React from "react"
 import { shallow, mount } from "enzyme"
 import BlockStyleControl from "./index"
-import MenuItem from "@material-ui/core/MenuItem";
+import MenuItem from "@material-ui/core/MenuItem"
 
 describe("BlockStyleControl", () => {
   it("Should render block style control", () => {

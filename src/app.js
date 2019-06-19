@@ -21,7 +21,11 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div className={classes.editor}>
-          <Editor value={editorState} onChange={state => console.log(state)} blockStyleControls={["header-one"]} />
+          <Editor
+            value={editorState}
+            onChange={state => console.log(state)}
+            blockStyleControls={["header-one"]}
+          />
         </div>
       </ThemeProvider>
     )
