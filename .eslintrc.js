@@ -1,11 +1,12 @@
 module.exports = {
   "parser": "babel-eslint",
   "extends": ["react", "prettier"],
-  "plugins": ["react", "import", "prettier"],
+  "plugins": ["react", "import", "prettier", "jest"],
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "rules": {
     "semi": ["error", "never"],
