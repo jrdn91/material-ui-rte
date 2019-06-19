@@ -1,8 +1,8 @@
 import React from "react"
 import Typography from "./Typography"
-const { Map } = require("immutable")
+const { Map: map } = require("immutable")
 
-const blockRenderMap = Map({
+const blockRenderMap = map({
   unstyled: {
     element: "span",
     wrapper: <Typography component="span" />
