@@ -78,7 +78,7 @@ export const EditorComponent = props => {
       <Paper className={classes.paper}>
         <Toolbar className={classes.toolbar}>
           {props.blockStyleControls !== false &&
-            <BlockStyleControl onChange={handleBlockStyleChange} />
+            <BlockStyleControl controls={props.blockStyleControls} onChange={handleBlockStyleChange} />
           }
           <DividerControl onClick={handleDividerControlClick} />
           <InlineStyleControls
@@ -112,19 +112,29 @@ export const EditorComponent = props => {
   )
 }
 
+const availableBlockStyles = [
+  "paragraph",
+  "blockquote",
+  "header-one",
+  "header-two",
+  "header-three",
+  "header-four",
+  "header-five",
+  "header-six"
+]
+
 EditorComponent.propTypes = {
   blockStyleControls: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.arrayOf([
-      "paragraph",
-      "blockquote",
-      "header-one",
-      "header-two",
-      "header-three",
-      "header-four",
-      "header-five",
-      "header-six"
-    ])
+    PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+      return propValue.some(p => {
+        if (availableBlockStyles.indexOf(p) === -1) {
+          return new Error(`Invalid prop ${propFullName} supplied to ${componentName}. Should be one of ${availableBlockStyles.join(' | ')}`) 
+        } else {
+          return true
+        }
+      })
+    })
   ])
 }
 

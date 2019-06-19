@@ -23,6 +23,13 @@ const BlockStyleControl = props => {
   function handleClose() {
     setAnchorEl(null)
   }
+  function blockTypes() {
+    if (Array.isArray(props.controls)) {
+      return BLOCK_TYPES.filter(b => props.controls.indexOf(b.style) > -1)
+    } else {
+      return BLOCK_TYPES
+    }
+  }
   return (
     <FormControl style={{ width: "120px" }} id="mur-editor-block-style-controls">
       <Input
@@ -43,7 +50,7 @@ const BlockStyleControl = props => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {BLOCK_TYPES.map(type => (
+        {blockTypes().map(type => (
           <MenuItem
             key={type.style}
             onClick={() => {
