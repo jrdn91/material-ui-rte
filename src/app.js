@@ -25,6 +25,8 @@ class App extends Component {
             value={editorState}
             onChange={state => console.log(state)}
             blockStyleControls={["header-one"]}
+            inlineStyleControls={["bold"]}
+            listControls={["unordered-list"]}
           />
         </div>
       </ThemeProvider>
