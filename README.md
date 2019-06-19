@@ -16,13 +16,13 @@ Filling this out later
 
 ### Editor Props
 
-#### Block styles (headings, paragraph, etc.)
-
 Currently, all controls follow this property setup unless otherwise specified...
 
 Specifying a `boolean` will completely show / hide the controls altogether.
 
 Specifying an `array` will only show the buttons / menu items that were passed in.
+
+#### Block styles (headings, paragraph, etc.)
 
 ```js
   blockStyleControls: PropTypes.oneOfType([
