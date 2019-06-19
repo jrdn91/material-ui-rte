@@ -33,6 +33,22 @@ Specifying a `boolean` will completely show / hide the controls altogether.
 
 Specifying an `array` allows to only include what is passed in the dropdown. So passing `["paragraph", "header-one"]` will only render the `paragraph` and `h1` block styles as options in the dropdown
 
+#### Divider
+
+API Coming Soon...
+
+#### Inline Style Controls
+
+API Coming Soon...
+
+#### List Controls
+
+API Coming Soon...
+
+#### Alignment Controls
+
+API Coming Soon...
+
 ## Development
 
 `yarn start`
