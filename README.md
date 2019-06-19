@@ -63,5 +63,6 @@ Run tests with `yarn test`
 - [ ] Image controls
 - [ ] Support for custom controls
 - [ ] support for additional draft.js plugins
+- [ ] support for plain text and html as initial values
 
 PR's welcome!
