@@ -12,7 +12,7 @@ const useStyles = makeStyles(styles, {
   name: "MuiRte-AlignmentControls"
 })
 
-const INLINE_STYLES = [
+const ALIGNMENT_TYPES = [
   { icon: FormatAlignLeftIcon, style: "LEFT" },
   { icon: FormatAlignCenterIcon, style: "CENTER" },
   { icon: FormatAlignRightIcon, style: "RIGHT" }
@@ -31,16 +31,25 @@ const AlignmentControls = props => {
       />
     )
   }
+  function alignmentTypes() {
+    if (Array.isArray(props.controls)) {
+      return ALIGNMENT_TYPES.filter(
+        b => props.controls.indexOf(b.style.toLowerCase()) > -1
+      )
+    } else {
+      return ALIGNMENT_TYPES
+    }
+  }
   return (
     <ButtonGroup size="small" variant="contained">
-      {INLINE_STYLES.map(
+      {alignmentTypes().map(
         type => (
           <Button
             key={type.style}
             onClick={() =>
               props.onChange(
                 type.style,
-                INLINE_STYLES.filter(t => t.style !== type.style).map(
+                ALIGNMENT_TYPES.filter(t => t.style !== type.style).map(
                   t => t.style
                 )
               )

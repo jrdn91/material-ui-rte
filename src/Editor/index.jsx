@@ -100,10 +100,13 @@ export const EditorComponent = props => {
               onChange={handleBlockStyleChange}
             />
           )}
-          <AlignmentControls
-            editorState={editorState}
-            onChange={handleAlignmentStyleChange}
-          />
+          {props.alignmentControls !== false && (
+            <AlignmentControls
+              controls={props.alignmentControls}
+              editorState={editorState}
+              onChange={handleAlignmentStyleChange}
+            />
+          )}
         </Toolbar>
         <div
           className={classes.editor}
@@ -137,6 +140,8 @@ const availableBlockStyles = [
 const availableInlineStyles = ["bold", "italic", "underline"]
 
 const availableListTypes = ["ordered-list", "unordered-list"]
+
+const availableAlignmentStyles = ["left", "center", "right"]
 
 EditorComponent.propTypes = {
   blockStyleControls: PropTypes.oneOfType([
@@ -205,6 +210,28 @@ EditorComponent.propTypes = {
         }
       })
     })
+  ]),
+  alignmentControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf(function(
+      propValue,
+      key,
+      componentName,
+      location,
+      propFullName
+    ) {
+      return propValue.some(p => {
+        if (availableAlignmentStyles.indexOf(p) === -1) {
+          return new Error(
+            `Invalid prop ${propFullName} supplied to ${componentName}. Should be one of ${availableAlignmentStyles.join(
+              " | "
+            )}`
+          )
+        } else {
+          return true
+        }
+      })
+    })
   ])
 }
 
@@ -212,7 +239,8 @@ EditorComponent.defaultProps = {
   blockStyleControls: true,
   dividerControl: true,
   inlineStyleControls: true,
-  listControls: true
+  listControls: true,
+  alignmentControls: true
 }
 
 export default EditorComponent

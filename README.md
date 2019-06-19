@@ -73,9 +73,18 @@ The Divider Control does not accept an array value since it's only one button :g
   }
 ```
 
-#### Alignment Controls
+#### List Controls
 
-API Coming Soon...
+```js
+  alignmentControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("left", "center", "right")
+  ])
+
+  defaultProps = {
+    alignmentControls: true
+  }
+```
 
 ## Development
 
