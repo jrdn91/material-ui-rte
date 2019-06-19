@@ -88,6 +88,7 @@ export const EditorComponent = props => {
           )}
           {props.inlineStyleControls !== false && (
             <InlineStyleControls
+              controls={props.inlineStyleControls}
               editorState={editorState}
               onChange={handleInlineStyleChange}
             />
