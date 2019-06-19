@@ -1,6 +1,7 @@
 import React from "react"
 import { shallow, mount } from "enzyme"
 import Editor from "./index"
+import DividerControl from "../DividerControl"
 import BlockStyleControl from "../BlockStyleControl"
 
 describe("Editor", () => {
@@ -14,5 +15,11 @@ describe("Editor", () => {
     const component = mount(<Editor blockStyleControls={false} />)
 
     expect(component.find(BlockStyleControl).exists()).toBe(false)
+  })
+
+  it("Should not render divider control when 'dividerControl is set to 'false'", () => {
+    const component = mount(<Editor dividerControl={false} />)
+
+    expect(component.find(DividerControl).exists()).toBe(false)
   })
 })

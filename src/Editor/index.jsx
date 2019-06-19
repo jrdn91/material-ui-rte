@@ -83,7 +83,9 @@ export const EditorComponent = props => {
               onChange={handleBlockStyleChange}
             />
           )}
-          <DividerControl onClick={handleDividerControlClick} />
+          {props.dividerControl !== false && (
+            <DividerControl onClick={handleDividerControlClick} />
+          )}
           <InlineStyleControls
             editorState={editorState}
             onChange={handleInlineStyleChange}
@@ -148,11 +150,13 @@ EditorComponent.propTypes = {
         }
       })
     })
-  ])
+  ]),
+  dividerControl: PropTypes.bool
 }
 
 EditorComponent.defaultProps = {
-  blockStyleControls: true
+  blockStyleControls: true,
+  dividerControl: true
 }
 
 export default EditorComponent
