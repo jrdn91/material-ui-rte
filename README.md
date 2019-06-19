@@ -38,3 +38,14 @@ Specifying an `array` allows to only include what is passed in the dropdown. So 
 `yarn start`
 
 Make changes to `src/app.js` for testing, `webpack-dev-server` is run at `localhost:4400`
+
+Run tests with `yarn test`
+
+## ToDo
+
+- [ ] Color picker
+- [ ] Image controls
+- [ ] Support for custom controls
+- [ ] support for additional draft.js plugins
+
+PR's welcome!
