@@ -62,7 +62,16 @@ The Divider Control does not accept an array value since it's only one button :g
 
 #### List Controls
 
-API Coming Soon...
+```js
+  listControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("ordered-list", "unordered-list"")
+  ])
+
+  defaultProps = {
+    listControls: true
+  }
+```
 
 #### Alignment Controls
 

@@ -4,6 +4,7 @@ import Editor from "./index"
 import DividerControl from "../DividerControl"
 import BlockStyleControl from "../BlockStyleControl"
 import InlineStyleControls from "../InlineStyleControls"
+import ListControls from "../ListControls"
 
 describe("Editor", () => {
   it("Should render alignment control", () => {
@@ -28,5 +29,11 @@ describe("Editor", () => {
     const component = mount(<Editor inlineStyleControls={false} />)
 
     expect(component.find(InlineStyleControls).exists()).toBe(false)
+  })
+
+  it("Should not render list controls when 'listControls is set to 'false'", () => {
+    const component = mount(<Editor listControls={false} />)
+
+    expect(component.find(ListControls).exists()).toBe(false)
   })
 })

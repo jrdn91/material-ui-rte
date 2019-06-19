@@ -29,9 +29,18 @@ const ListControls = props => {
       />
     )
   }
+  function listStyles() {
+    if (Array.isArray(props.controls)) {
+      return LIST_STYLES.filter(
+        b => props.controls.indexOf(b.style.replace("-item", "")) > -1
+      )
+    } else {
+      return LIST_STYLES
+    }
+  }
   return (
     <ButtonGroup size="small" variant="contained">
-      {LIST_STYLES.map(type => (
+      {listStyles().map(type => (
         <Button key={type.style} onClick={() => props.onChange(type.style)}>
           {renderIcon(type)}
         </Button>

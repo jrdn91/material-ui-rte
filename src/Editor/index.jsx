@@ -93,10 +93,13 @@ export const EditorComponent = props => {
               onChange={handleInlineStyleChange}
             />
           )}
-          <ListControls
-            editorState={editorState}
-            onChange={handleBlockStyleChange}
-          />
+          {props.listControls !== false && (
+            <ListControls
+              controls={props.listControls}
+              editorState={editorState}
+              onChange={handleBlockStyleChange}
+            />
+          )}
           <InlineAlignmentControls
             editorState={editorState}
             onChange={handleAlignmentStyleChange}
@@ -132,6 +135,8 @@ const availableBlockStyles = [
 ]
 
 const availableInlineStyles = ["bold", "italic", "underline"]
+
+const availableListTypes = ["ordered-list", "unordered-list"]
 
 EditorComponent.propTypes = {
   blockStyleControls: PropTypes.oneOfType([
@@ -178,13 +183,36 @@ EditorComponent.propTypes = {
         }
       })
     })
+  ]),
+  listStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf(function(
+      propValue,
+      key,
+      componentName,
+      location,
+      propFullName
+    ) {
+      return propValue.some(p => {
+        if (availableBlockStyles.indexOf(p) === -1) {
+          return new Error(
+            `Invalid prop ${propFullName} supplied to ${componentName}. Should be one of ${availableListTypes.join(
+              " | "
+            )}`
+          )
+        } else {
+          return true
+        }
+      })
+    })
   ])
 }
 
 EditorComponent.defaultProps = {
   blockStyleControls: true,
   dividerControl: true,
-  inlineStyleControls: true
+  inlineStyleControls: true,
+  listControls: true
 }
 
 export default EditorComponent
