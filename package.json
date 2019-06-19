@@ -17,7 +17,8 @@
       "jss-snapshot-serializer"
     ],
     "setupFiles": [
-      "./src/setupTests.js"
+      "./src/setupTests.js",
+      "./src/tests/throw-on-prop-type-error.js"
     ]
   },
   "browserslist": [
