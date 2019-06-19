@@ -18,6 +18,12 @@ Filling this out later
 
 #### Block styles (headings, paragraph, etc.)
 
+Currently, all controls follow this property setup unless otherwise specified...
+
+Specifying a `boolean` will completely show / hide the controls altogether.
+
+Specifying an `array` will only show the buttons / menu items that were passed in.
+
 ```js
   blockStyleControls: PropTypes.oneOfType([
     PropTypes.bool,
@@ -29,9 +35,7 @@ Filling this out later
   }
 ```
 
-Specifying a `boolean` will completely show / hide the controls altogether.
 
-Specifying an `array` allows to only include what is passed in the dropdown. So passing `["paragraph", "header-one"]` will only render the `paragraph` and `h1` block styles as options in the dropdown
 
 #### Divider
 
