@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme"
 import Editor from "./index"
 import DividerControl from "../DividerControl"
 import BlockStyleControl from "../BlockStyleControl"
+import InlineStyleControls from "../InlineStyleControls"
 
 describe("Editor", () => {
   it("Should render alignment control", () => {
@@ -21,5 +22,11 @@ describe("Editor", () => {
     const component = mount(<Editor dividerControl={false} />)
 
     expect(component.find(DividerControl).exists()).toBe(false)
+  })
+
+  it("Should not render inline style controls when 'inlineStyleControls is set to 'false'", () => {
+    const component = mount(<Editor inlineStyleControls={false} />)
+
+    expect(component.find(InlineStyleControls).exists()).toBe(false)
   })
 })

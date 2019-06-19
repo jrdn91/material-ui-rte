@@ -86,10 +86,12 @@ export const EditorComponent = props => {
           {props.dividerControl !== false && (
             <DividerControl onClick={handleDividerControlClick} />
           )}
-          <InlineStyleControls
-            editorState={editorState}
-            onChange={handleInlineStyleChange}
-          />
+          {props.inlineStyleControls !== false && (
+            <InlineStyleControls
+              editorState={editorState}
+              onChange={handleInlineStyleChange}
+            />
+          )}
           <ListControls
             editorState={editorState}
             onChange={handleBlockStyleChange}
@@ -128,6 +130,8 @@ const availableBlockStyles = [
   "header-six"
 ]
 
+const availableInlineStyles = ["bold", "italic", "underline"]
+
 EditorComponent.propTypes = {
   blockStyleControls: PropTypes.oneOfType([
     PropTypes.bool,
@@ -151,7 +155,29 @@ EditorComponent.propTypes = {
       })
     })
   ]),
-  dividerControl: PropTypes.bool
+  dividerControl: PropTypes.bool,
+  inlineStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf(function(
+      propValue,
+      key,
+      componentName,
+      location,
+      propFullName
+    ) {
+      return propValue.some(p => {
+        if (availableBlockStyles.indexOf(p) === -1) {
+          return new Error(
+            `Invalid prop ${propFullName} supplied to ${componentName}. Should be one of ${availableInlineStyles.join(
+              " | "
+            )}`
+          )
+        } else {
+          return true
+        }
+      })
+    })
+  ])
 }
 
 EditorComponent.defaultProps = {
