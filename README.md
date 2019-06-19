@@ -47,9 +47,18 @@ Specifying an `array` will only show the buttons / menu items that were passed i
 
 The Divider Control does not accept an array value since it's only one button :grin:
 
-#### Inline Style Controls
+#### Inline Style Controls (bold, italic, underline)
 
-API Coming Soon...
+```js
+  inlineStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("bold", "italic", "underline")
+  ])
+
+  defaultProps = {
+    inlineStyleControls: true
+  }
+```
 
 #### List Controls
 

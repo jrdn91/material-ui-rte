@@ -31,9 +31,18 @@ const InlineStyleControls = props => {
       />
     )
   }
+  function inlineStyles() {
+    if (Array.isArray(props.controls)) {
+      return INLINE_STYLES.filter(
+        b => props.controls.indexOf(b.style.toLowerCase()) > -1
+      )
+    } else {
+      return INLINE_STYLES
+    }
+  }
   return (
     <ButtonGroup size="small" variant="contained">
-      {INLINE_STYLES.map(type => (
+      {inlineStyles().map(type => (
         <Button key={type.style} onClick={() => props.onChange(type.style)}>
           {renderIcon(type)}
         </Button>
