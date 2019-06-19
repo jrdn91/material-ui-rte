@@ -172,7 +172,7 @@ EditorComponent.propTypes = {
       propFullName
     ) {
       return propValue.some(p => {
-        if (availableBlockStyles.indexOf(p) === -1) {
+        if (availableInlineStyles.indexOf(p) === -1) {
           return new Error(
             `Invalid prop ${propFullName} supplied to ${componentName}. Should be one of ${availableInlineStyles.join(
               " | "
@@ -194,7 +194,7 @@ EditorComponent.propTypes = {
       propFullName
     ) {
       return propValue.some(p => {
-        if (availableBlockStyles.indexOf(p) === -1) {
+        if (availableListTypes.indexOf(p) === -1) {
           return new Error(
             `Invalid prop ${propFullName} supplied to ${componentName}. Should be one of ${availableListTypes.join(
               " | "
