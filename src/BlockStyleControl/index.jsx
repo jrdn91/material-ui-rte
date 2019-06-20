@@ -31,7 +31,7 @@ const BlockStyleControl = props => {
     }
   }
   return (
-    <FormControl style={{ width: "120px" }}>
+    <FormControl style={{ width: "120px" }} id="menu-control">
       <Input
         onClick={handleClick}
         value={selectValue.label}
@@ -49,7 +49,7 @@ const BlockStyleControl = props => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        disableEnforceFocus
+        container={document.getElementById("menu-control")}
       >
         {blockTypes().map(type => (
           <MenuItem
