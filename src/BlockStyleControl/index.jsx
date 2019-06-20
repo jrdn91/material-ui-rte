@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem"
 import FormControl from "@material-ui/core/FormControl"
 import Typography from "@material-ui/core/Typography"
 import BLOCK_TYPES from "./blockTypes"
+import { ModalManager } from "@material-ui/core"
 
 const BlockStyleControl = props => {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -49,6 +50,7 @@ const BlockStyleControl = props => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        manager={new ModalManager()}
       >
         {blockTypes().map(type => (
           <MenuItem
