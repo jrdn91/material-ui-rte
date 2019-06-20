@@ -6,6 +6,7 @@ import blockStyleFn from "../blockStyleFn"
 import blockRenderMap from "../blockRenderMap"
 import Editor from "draft-js-plugins-editor"
 import createBlockBreakoutPlugin from "draft-js-block-breakout-plugin"
+import createImagePlugin from "draft-js-image-plugin"
 import createDividerPlugin from "draft-js-divider-plugin"
 import { makeStyles } from "@material-ui/core/styles"
 import { StylesProvider, createGenerateClassName } from "@material-ui/styles"
@@ -18,6 +19,7 @@ import AlignmentControls from "../AlignmentControls"
 import ListControls from "../ListControls"
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
+import ImageUploadControl from "../ImageUploadControl"
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "mur"
@@ -37,9 +39,11 @@ const dividerPlugin = createDividerPlugin({
   component: Divider
 })
 
+const imagePlugin = createImagePlugin()
+
 const { addDivider } = dividerPlugin
 
-const plugins = [blockBreakoutPlugin, dividerPlugin]
+const plugins = [blockBreakoutPlugin, dividerPlugin, imagePlugin]
 
 export const EditorComponent = props => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -85,6 +89,9 @@ export const EditorComponent = props => {
           )}
           {props.dividerControl !== false && (
             <DividerControl onClick={handleDividerControlClick} />
+          )}
+          {props.imageUploadControl !== false && (
+            <ImageUploadControl onClick={handleDividerControlClick} />
           )}
           {props.inlineStyleControls !== false && (
             <InlineStyleControls
@@ -167,6 +174,7 @@ EditorComponent.propTypes = {
     })
   ]),
   dividerControl: PropTypes.bool,
+  imageUploadControl: PropTypes.bool,
   inlineStyleControls: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.arrayOf(function(
