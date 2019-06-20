@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from "react"
 import PropTypes from "prop-types"
-import Draft, { EditorState, convertFromRaw, convertToRaw } from "draft-js"
+import Draft, {
+  EditorState,
+  convertFromRaw,
+  convertToRaw,
+  AtomicBlockUtils
+} from "draft-js"
 import RichUtils from "../RichUtils"
 import blockStyleFn from "../blockStyleFn"
 import blockRenderMap from "../blockRenderMap"
@@ -54,6 +59,8 @@ export const EditorComponent = props => {
   }, [])
   const editorRef = useRef(null)
 
+  const classes = useStyles()
+
   const onEditorChange = editorState => {
     setEditorState(editorState)
     if (props.hasOwnProperty("onChange")) {
@@ -76,7 +83,25 @@ export const EditorComponent = props => {
   const handleDividerControlClick = () => {
     onEditorChange(addDivider(editorState))
   }
-  const classes = useStyles()
+  const handleFile = file => {
+    console.log(file)
+    const contentState = editorState.getCurrentContent()
+    const contentStateWithEntity = contentState.createEntity(
+      "IMAGE",
+      "IMMUTABLE",
+      { src: file.preview }
+    )
+    const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
+    const newEditorState = EditorState.set(editorState, {
+      currentContent: contentStateWithEntity
+    })
+    const editorStateWithImage = AtomicBlockUtils.insertAtomicBlock(
+      newEditorState,
+      entityKey,
+      " "
+    )
+    onEditorChange(editorStateWithImage)
+  }
   return (
     <StylesProvider generateClassName={generateClassName}>
       <Paper className={classes.paper}>
@@ -91,7 +116,7 @@ export const EditorComponent = props => {
             <DividerControl onClick={handleDividerControlClick} />
           )}
           {props.imageUploadControl !== false && (
-            <ImageUploadControl onClick={handleDividerControlClick} />
+            <ImageUploadControl onFile={handleFile} />
           )}
           {props.inlineStyleControls !== false && (
             <InlineStyleControls
