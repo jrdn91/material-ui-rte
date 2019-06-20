@@ -89,7 +89,7 @@ export const EditorComponent = props => {
     const contentStateWithEntity = contentState.createEntity(
       "IMAGE",
       "IMMUTABLE",
-      { src: file.preview }
+      { src: file.preview, file }
     )
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
     const newEditorState = EditorState.set(editorState, {
