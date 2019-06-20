@@ -8,6 +8,9 @@ const ImageUploadControl = props => {
     let file = files[0]
     file.preview = URL.createObjectURL(files[0])
     props.onFile(file)
+    setTimeout(() => {
+      document.getElementById("file-input").value = null
+    }, 50)
   }
   return (
     <Fragment>
