@@ -2,6 +2,11 @@
   "name": "material-ui-rte",
   "author": "Jordan Riser",
   "version": "1.1.2",
+  "repository": {
+    "type" : "git",
+    "url": "https://github.com/jrdn91/material-ui-rte"
+  },
+  "keywords": ["material","ui","react","rich","text","editor","wysiwyg","draft","draft.js","draft-js"],
   "description": "A rich text editor build with Draft.js and Material UI",
   "main": "./lib/index.js",
   "eslintConfig": {
