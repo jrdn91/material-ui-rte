@@ -7,6 +7,9 @@ import FormatAlignCenterIcon from "@material-ui/icons/FormatAlignCenter"
 import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight"
 import clsx from "clsx"
 import styles from "./styles"
+import { Tooltip } from "@material-ui/core"
+
+const isMacOS = navigator.platform.toLowerCase().indexOf("mac") > -1
 
 const useStyles = makeStyles(styles, {
   name: "MuiRte-AlignmentControls"
@@ -21,6 +24,17 @@ const ALIGNMENT_TYPES = [
 const AlignmentControls = props => {
   const classes = useStyles()
   const currentStyle = props.editorState.getCurrentInlineStyle()
+  const renderTooltip = type => {
+    if (type.style === "LEFT") {
+      return `${isMacOS ? "⌘" : "Ctrl"}+L`
+    }
+    if (type.style === "CENTER") {
+      return `${isMacOS ? "⌘" : "Ctrl"}+E`
+    }
+    if (type.style === "RIGHT") {
+      return `${isMacOS ? "⌘" : "Ctrl"}+R`
+    }
+  }
   const renderIcon = type => {
     let IconName = type.icon
     return (
@@ -44,19 +58,24 @@ const AlignmentControls = props => {
     <ButtonGroup size="small" variant="contained">
       {alignmentTypes().map(
         type => (
-          <Button
+          <Tooltip
+            enterDelay={250}
             key={type.style}
-            onClick={() =>
-              props.onChange(
-                type.style,
-                ALIGNMENT_TYPES.filter(t => t.style !== type.style).map(
-                  t => t.style
-                )
-              )
-            }
+            title={renderTooltip(type)}
           >
-            {renderIcon(type)}
-          </Button>
+            <Button
+              onClick={() =>
+                props.onChange(
+                  type.style,
+                  ALIGNMENT_TYPES.filter(t => t.style !== type.style).map(
+                    t => t.style
+                  )
+                )
+              }
+            >
+              {renderIcon(type)}
+            </Button>
+          </Tooltip>
         )
         // <Button key={type.style} onClick={() => console.log(props.editorState.getBlockTree())}>{renderIcon(type)}</Button>
       )}
