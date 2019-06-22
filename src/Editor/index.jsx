@@ -4,7 +4,9 @@ import Draft, {
   EditorState,
   convertFromRaw,
   convertToRaw,
-  AtomicBlockUtils
+  AtomicBlockUtils,
+  getDefaultKeyBinding,
+  KeyBindingUtil
 } from "draft-js"
 import RichUtils from "../RichUtils"
 import blockStyleFn from "../blockStyleFn"
@@ -25,6 +27,9 @@ import ListControls from "../ListControls"
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
 import ImageUploadControl from "../ImageUploadControl"
+
+// SETUP KEYBINDINGS
+const { hasCommandModifier } = KeyBindingUtil
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "mur"
@@ -49,6 +54,35 @@ const imagePlugin = createImagePlugin()
 const { addDivider } = dividerPlugin
 
 const plugins = [blockBreakoutPlugin, dividerPlugin, imagePlugin]
+
+// SETUP TYPES FOR PROP CHECKING
+const availableBlockStyles = [
+  "paragraph",
+  "blockquote",
+  "header-one",
+  "header-two",
+  "header-three",
+  "header-four",
+  "header-five",
+  "header-six"
+]
+const availableInlineStyles = ["bold", "italic", "underline"]
+const availableListTypes = ["ordered-list", "unordered-list"]
+const availableAlignmentStyles = ["left", "center", "right"]
+
+const myKeyBindingFn = e => {
+  // hook up alignment shortcuts
+  if (e.keyCode === 76 /* `L` key */ && hasCommandModifier(e)) {
+    return "align-left"
+  }
+  if (e.keyCode === 69 /* `E` key */ && hasCommandModifier(e)) {
+    return "align-center"
+  }
+  if (e.keyCode === 82 /* `R` key */ && hasCommandModifier(e)) {
+    return "align-right"
+  }
+  return getDefaultKeyBinding(e)
+}
 
 export const EditorComponent = props => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -102,6 +136,25 @@ export const EditorComponent = props => {
     )
     onEditorChange(editorStateWithImage)
   }
+
+  const handlekeyCommand = command => {
+    if (command.indexOf("align-") > -1 && props.alignmentControls !== false) {
+      let allowedControls = []
+      if (props.alignmentControls === true) {
+        allowedControls = availableAlignmentStyles
+      } else {
+        allowedControls = props.alignmentControls
+      }
+      const alignment = command.replace("align-", "")
+      if (allowedControls.indexOf(alignment) > -1) {
+        handleAlignmentStyleChange(alignment.toUpperCase())
+        return "handled"
+      }
+      return "not-handled"
+    }
+    return "not-handled"
+  }
+
   return (
     <StylesProvider generateClassName={generateClassName}>
       <Paper className={classes.paper}>
@@ -146,6 +199,8 @@ export const EditorComponent = props => {
         >
           <Editor
             ref={editorRef}
+            handleKeyCommand={handlekeyCommand}
+            keyBindingFn={myKeyBindingFn}
             blockStyleFn={blockStyleFn}
             blockRenderMap={extendedBlockRenderMap}
             editorState={editorState}
@@ -157,23 +212,6 @@ export const EditorComponent = props => {
     </StylesProvider>
   )
 }
-
-const availableBlockStyles = [
-  "paragraph",
-  "blockquote",
-  "header-one",
-  "header-two",
-  "header-three",
-  "header-four",
-  "header-five",
-  "header-six"
-]
-
-const availableInlineStyles = ["bold", "italic", "underline"]
-
-const availableListTypes = ["ordered-list", "unordered-list"]
-
-const availableAlignmentStyles = ["left", "center", "right"]
 
 EditorComponent.propTypes = {
   blockStyleControls: PropTypes.oneOfType([
