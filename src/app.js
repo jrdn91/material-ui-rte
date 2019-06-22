@@ -27,7 +27,6 @@ class App extends Component {
             blockStyleControls={["header-one"]}
             inlineStyleControls={["bold"]}
             listControls={["unordered-list"]}
-            alignmentControls={["center"]}
           />
         </div>
       </ThemeProvider>
