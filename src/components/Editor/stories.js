@@ -7,10 +7,14 @@ import { action } from "@storybook/addon-actions"
 // Import our component from this folder
 import Editor from "./index"
 
-const theme = createMuiTheme()
+const theme = createMuiTheme({
+  palette: {
+    text: {
+      primary: "#f00"
+    }
+  }
+})
 
 storiesOf("Editor").add("Basic", () => (
-  <ThemeProvider theme={theme}>
-    <Editor onChange={action("editor content changed")} />
-  </ThemeProvider>
+  <Editor onChange={action("editor content changed")} />
 ))
