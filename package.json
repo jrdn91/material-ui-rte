@@ -1,34 +1,48 @@
 {
-  "name": "rinse-react",
-  "version": "4.0.0",
-  "description": "Rinse, React, repeat. A React component library boilerplate.",
+  "name": "material-ui-rte",
+  "author": "Jordan Riser",
+  "version": "1.1.3",
+  "description": "A rich text editor build with Draft.js and Material UI",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 9001",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cwlsn/rinse-react.git"
+    "url": "https://github.com/jrdn91/material-ui-rte"
   },
   "keywords": [
-    "boilerplate",
+    "material",
+    "ui",
     "react",
-    "shared",
-    "components",
-    "components"
+    "rich",
+    "text",
+    "editor",
+    "wysiwyg",
+    "draft",
+    "draft.js",
+    "draft-js"
   ],
-  "author": "Connor Wilson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cwlsn/rinse-react/issues"
+    "url": "https://github.com/jrdn91/material-ui-rte/issues"
   },
-  "homepage": "https://github.com/cwlsn/rinse-react#readme",
+  "homepage": "https://github.com/jrdn91/material-ui-rte#readme",
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "jss-snapshot-serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js",
+      "./src/tests/throw-on-prop-type-error.js"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
