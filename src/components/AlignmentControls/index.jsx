@@ -1,19 +1,19 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+// import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 import FormatAlignLeftIcon from "@material-ui/icons/FormatAlignLeft"
 import FormatAlignCenterIcon from "@material-ui/icons/FormatAlignCenter"
 import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight"
 import clsx from "clsx"
-import styles from "./styles"
+// import styles from "./styles"
 import { Tooltip } from "@material-ui/core"
 
 const isMacOS = navigator.platform.toLowerCase().indexOf("mac") > -1
 
-const useStyles = makeStyles(styles, {
-  name: "MuiRte-AlignmentControls"
-})
+// const useStyles = makeStyles(styles, {
+//   name: "MuiRte-AlignmentControls"
+// })
 
 const ALIGNMENT_TYPES = [
   { icon: FormatAlignLeftIcon, style: "LEFT" },
@@ -22,7 +22,8 @@ const ALIGNMENT_TYPES = [
 ]
 
 const AlignmentControls = props => {
-  const classes = useStyles()
+  // const classes = useStyles()
+  const classes = {}
   const currentStyle = props.editorState.getCurrentInlineStyle()
   const renderTooltip = type => {
     if (type.style === "LEFT") {

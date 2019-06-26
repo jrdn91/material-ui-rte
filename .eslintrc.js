@@ -1,7 +1,7 @@
 module.exports = {
   "parser": "babel-eslint",
   "extends": ["react", "prettier"],
-  "plugins": ["react", "import", "prettier", "jest"],
+  "plugins": ["react", "import", "prettier", "jest", "react-hooks"],
   "env": {
     "es6": true,
     "browser": true,
@@ -26,6 +26,8 @@ module.exports = {
     "max-depth": 0,
     "no-unused-vars": 1,
     "multiline-ternary": 0,
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 };

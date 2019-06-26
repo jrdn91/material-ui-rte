@@ -1,7 +1,7 @@
-import React from "react"
-import { render } from "react-dom"
-import App from "./app"
+// Export all the explicitly exported components, this file will contain our
+// components when built by webpack and sent off to the world.
+import "./components/editor.css"
 
-const Application = <App />
+import Editor from "./components/Editor"
 
-render(Application, document.getElementById("app"))
+export default Editor
