@@ -1,0 +1,146 @@
+Arguments: 
+  /Users/jordanriser/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
+
+PATH: 
+  /Applications/MAMP/bin/php/php7.1.8/bin:/Applications/MAMP/Library/bin:/usr/local/share/python:/Users/jordanriser/.fastlane/bin:/Users/jordanriser/.rbenv/shims:/Users/jordanriser/.nvm/versions/node/v8.10.0/bin:/Users/jordanriser/.rvm/gems/ruby-2.6.0/bin:/Users/jordanriser/.rvm/gems/ruby-2.6.0@global/bin:/Users/jordanriser/.rvm/rubies/ruby-2.6.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/jordanriser/.rvm/bin:/Users/jordanriser/Library/Android/sdk/emulator:/Users/jordanriser/Library/Android/sdk/tools:/Users/jordanriser/Library/Android/sdk/tools/bin:/Users/jordanriser/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.10.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "material-ui-rte",
+    "author": "Jordan Riser",
+    "version": "1.2.0",
+    "description": "A rich text editor build with Draft.js and Material UI",
+    "main": "lib/index.js",
+    "scripts": {
+      "build": "webpack --mode production",
+      "storybook": "start-storybook -p 9001",
+      "docz:dev": "docz dev",
+      "docz:build": "docz build",
+      "test": "jest --watch"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jrdn91/material-ui-rte"
+    },
+    "keywords": [
+      "material",
+      "ui",
+      "react",
+      "rich",
+      "text",
+      "editor",
+      "wysiwyg",
+      "draft",
+      "draft.js",
+      "draft-js"
+    ],
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jrdn91/material-ui-rte/issues"
+    },
+    "homepage": "https://github.com/jrdn91/material-ui-rte#readme",
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "jest": {
+      "snapshotSerializers": [
+        "jss-snapshot-serializer"
+      ],
+      "setupFiles": [
+        "./src/setupTests.js",
+        "./src/tests/throw-on-prop-type-error.js"
+      ]
+    },
+    "devDependencies": {
+      "@babel/core": "^7.2.2",
+      "@babel/plugin-proposal-class-properties": "^7.3.4",
+      "@babel/plugin-proposal-export-default-from": "^7.2.0",
+      "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+      "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+      "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+      "@babel/preset-env": "^7.3.4",
+      "@babel/preset-flow": "^7.0.0",
+      "@babel/preset-react": "^7.0.0",
+      "@material-ui/core": "^4.1.0",
+      "@material-ui/icons": "^4.1.0",
+      "@material-ui/styles": "^4.1.0",
+      "@storybook/addon-actions": "^4.0.0-alpha.20",
+      "@storybook/react": "^4.0.0-alpha.20",
+      "babel-eslint": "^10.0.2",
+      "babel-loader": "^8.0.1",
+      "css-loader": "^1.0.0",
+      "docz": "^1.2.0",
+      "docz-theme-default": "^1.2.0",
+      "eslint": "^5.16.0",
+      "eslint-config-prettier": "^5.0.0",
+      "eslint-config-react": "^1.1.7",
+      "eslint-config-react-app": "^3.0.8",
+      "eslint-loader": "^2.1.1",
+      "eslint-plugin-flowtype": "^3.4.2",
+      "eslint-plugin-import": "^2.16.0",
+      "eslint-plugin-jest": "^22.6.4",
+      "eslint-plugin-jsx-a11y": "^6.2.1",
+      "eslint-plugin-prettier": "^3.1.0",
+      "eslint-plugin-react": "^7.12.4",
+      "eslint-plugin-react-hooks": "^1.6.1",
+      "mini-css-extract-plugin": "^0.7.0",
+      "node-sass": "^4.9.3",
+      "prettier": "^1.18.2",
+      "sass-loader": "^7.1.0",
+      "style-loader": "^0.23.1",
+      "url-loader": "^1.1.2",
+      "webpack": "^4.28.3",
+      "webpack-cli": "^3.2.0"
+    },
+    "peerDependencies": {
+      "@material-ui/core": "^4.1.0",
+      "@material-ui/icons": "^4.1.0",
+      "@material-ui/styles": "^4.1.0",
+      "react": "^16.8.6",
+      "react-dom": "^16.8.6"
+    },
+    "resolutions": {
+      "**/react": "^16.8.6",
+      "**/react-dom": "^16.8.6"
+    },
+    "dependencies": {
+      "draft-js": "^0.10.5",
+      "draft-js-block-breakout-plugin": "^2.0.1",
+      "draft-js-divider-plugin": "^0.2.1",
+      "draft-js-image-plugin": "^2.0.6",
+      "draft-js-plugins-editor": "^2.1.1",
+      "immutable": "^4.0.0-rc.12",
+      "styled-components": "^4.2.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 127
+  Command: sh
+  Arguments: -c webpack --mode production
+  Directory: /Users/jordanriser/workspace/material-ui-rte
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
