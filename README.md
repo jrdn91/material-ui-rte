@@ -1,33 +1,105 @@
-<p align="center">
-	<img src="https://user-images.githubusercontent.com/10063864/45442352-c961ab80-b68f-11e8-84a3-e920f05a313c.png" width={400} alt="Rinse" />
-</p>
+# Material-UI-RTE
 
-> Rinse, React, repeat. A boilerplate to build a React component library.
+## Description
 
-#### To learn how this project was made from scratch, [read the blog post](https://medium.com/@cwlsn/how-to-write-your-own-reusable-react-component-library-a57dc7c9a210)!
+A rich text editor build with Draft.js and Material UI
 
-## Get Started
+## Installation
 
-To start your own React component library, clone this repository and start your own Git journey!
+`yarn add material-ui-rte`
 
-```bash
-$ git clone https://github.com/cwlsn/rinse-react cool-name
-$ cd cool-name
-$ rm -rf .git
-$ git init
+## Example
+
+Filling this out later
+
+## API
+
+### Editor Props
+
+Currently, all controls follow this property setup unless otherwise specified...
+
+Specifying a `boolean` will completely show / hide the controls altogether.
+
+Specifying an `array` will only show the buttons / menu items that were passed in.
+
+#### Block styles (headings, paragraph, etc.)
+
+```js
+  blockStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("paragraph", "blockquote", "header-one", "header-two", "header-three", "header-four", "header-five", "header-six")
+  ])
+
+  defaultProps = {
+    blockStyleControls: true
+  }
 ```
 
-## Development and Storybook
+#### Divider
 
-You can easily develop and interact with your components by using Storybook. To run the local server, simply run:
+```js
+  dividerControl: PropTypes.bool
 
-```bash
-$ npm i
-$ npm run storybook
+  defaultProps = {
+    dividerControl: true
+  }
 ```
 
-Navigate to [http://localhost:9001](http://localhost:9001) to view your stories. They should automatically update as you develop.
+The Divider Control does not accept an array value since it's only one button :grin:
 
-Storybook will pick up any story from the `stories.js` file in a component folder.
+#### Inline Style Controls (bold, italic, underline)
 
-Rinse is currently using the latest technology available, so you may need to update your Node versions to latest to accomodate Babel 7 and Webpack 4.
+```js
+  inlineStyleControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("bold", "italic", "underline")
+  ])
+
+  defaultProps = {
+    inlineStyleControls: true
+  }
+```
+
+#### List Controls
+
+```js
+  listControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("ordered-list", "unordered-list")
+  ])
+
+  defaultProps = {
+    listControls: true
+  }
+```
+
+#### List Controls
+
+```js
+  alignmentControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf("left", "center", "right")
+  ])
+
+  defaultProps = {
+    alignmentControls: true
+  }
+```
+
+## Development
+
+`yarn start`
+
+Make changes to `src/app.js` for testing, `webpack-dev-server` is run at `localhost:4400`
+
+Run tests with `yarn test`
+
+## ToDo
+
+- [ ] Color picker
+- [ ] Image controls
+- [ ] Support for custom controls
+- [ ] support for additional draft.js plugins
+- [ ] support for plain text and html as initial values
+
+PR's welcome!
