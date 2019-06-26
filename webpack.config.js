@@ -11,10 +11,14 @@ module.exports = {
   // module (I know it's a bit weird to have module.exports.module) is where we
   // define all the rules for how webpack will deal with thing.
   devtool: "source-map",
-  externals: {
-    react: "react",
-    "react-dom": "react-dom"
-  },
+  externals: [
+    {
+      react: "react",
+      "react-dom": "react-dom",
+      clsx: "clsx"
+    },
+    /^(\@material-ui\/[\w\/]+)$/i
+  ],
   module: {
     // rules takes an array, each item containing the respective rules
     rules: [
