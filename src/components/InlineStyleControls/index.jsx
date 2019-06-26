@@ -1,16 +1,16 @@
 import React from "react"
-// import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 import FormatBoldIcon from "@material-ui/icons/FormatBold"
 import FormatItalicIcon from "@material-ui/icons/FormatItalic"
 import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined"
 import clsx from "clsx"
-// import styles from "./styles"
+import styles from "./styles"
 
-// const useStyles = makeStyles(styles, {
-//   name: "MuiRte-InlineStyleControls"
-// })
+const useStyles = makeStyles(styles, {
+  name: "MuiRte-InlineStyleControls"
+})
 
 const INLINE_STYLES = [
   { icon: FormatBoldIcon, style: "BOLD" },
@@ -19,8 +19,7 @@ const INLINE_STYLES = [
 ]
 
 const InlineStyleControls = props => {
-  // const classes = useStyles()
-  const classes = {}
+  const classes = useStyles()
   const currentStyle = props.editorState.getCurrentInlineStyle()
   const renderIcon = type => {
     let IconName = type.icon

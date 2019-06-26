@@ -15,22 +15,18 @@ import Editor from "draft-js-plugins-editor"
 import createBlockBreakoutPlugin from "draft-js-block-breakout-plugin"
 import createImagePlugin from "draft-js-image-plugin"
 import createDividerPlugin from "draft-js-divider-plugin"
-// import { makeStyles } from "@material-ui/styles"
+import { makeStyles } from "@material-ui/styles"
 import { StylesProvider, createGenerateClassName } from "@material-ui/styles"
 import Paper from "@material-ui/core/Paper"
 import Toolbar from "@material-ui/core/Toolbar"
 import BlockStyleControl from "../BlockStyleControl"
-// import styles from "./styles"
+import styles from "./styles"
 import InlineStyleControls from "../InlineStyleControls"
 import AlignmentControls from "../AlignmentControls"
 import ListControls from "../ListControls"
 import DividerControl from "../DividerControl"
 import Divider from "./Divider"
 import ImageUploadControl from "../ImageUploadControl"
-
-require("react-dom")
-window.React2 = require("react")
-console.log(window.React1 === window.React2)
 
 // SETUP KEYBINDINGS
 const { hasCommandModifier } = KeyBindingUtil
@@ -39,9 +35,9 @@ const generateClassName = createGenerateClassName({
   productionPrefix: "mur"
 })
 
-// const useStyles = makeStyles(styles, {
-//   name: "MuiRte-Editor"
-// })
+const useStyles = makeStyles(styles, {
+  name: "MuiRte-Editor"
+})
 
 const extendedBlockRenderMap = Draft.DefaultDraftBlockRenderMap.merge(
   blockRenderMap
@@ -97,8 +93,7 @@ export const EditorComponent = props => {
   }, [props.value])
   const editorRef = useRef(null)
 
-  // const classes = useStyles()
-  const classes = {}
+  const classes = useStyles()
 
   const onEditorChange = editorState => {
     setEditorState(editorState)
