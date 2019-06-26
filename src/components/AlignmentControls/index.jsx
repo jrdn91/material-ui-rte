@@ -64,6 +64,7 @@ const AlignmentControls = props => {
             title={renderTooltip(type)}
           >
             <Button
+              id={type.style}
               onClick={() =>
                 props.onChange(
                   type.style,

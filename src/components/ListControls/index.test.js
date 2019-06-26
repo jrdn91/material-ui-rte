@@ -1,11 +1,22 @@
 import React from "react"
-import { shallow, mount } from "enzyme"
+import { createShallow, createMount } from "@material-ui/core/test-utils"
 import { EditorState } from "draft-js"
 import ListControls from "./index"
 import Button from "@material-ui/core/Button"
 
 describe("ListControls", () => {
   let editorState
+  let shallow
+  let mount
+
+  beforeAll(() => {
+    shallow = createShallow()
+    mount = createMount()
+  })
+
+  afterAll(() => {
+    mount.cleanUp()
+  })
 
   beforeEach(() => {
     editorState = EditorState.createEmpty()

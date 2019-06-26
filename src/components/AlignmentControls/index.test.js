@@ -1,11 +1,22 @@
 import React from "react"
-import { shallow, mount } from "enzyme"
+import { createShallow, createMount } from "@material-ui/core/test-utils"
 import { EditorState } from "draft-js"
 import AlignmentControls from "./index"
-import Button from "@material-ui/core/Button"
+import { Button } from "@material-ui/core"
 
 describe("AlignmentControls", () => {
   let editorState
+  let shallow
+  let mount
+
+  beforeAll(() => {
+    shallow = createShallow()
+    mount = createMount()
+  })
+
+  afterAll(() => {
+    mount.cleanUp()
+  })
 
   beforeEach(() => {
     editorState = EditorState.createEmpty()
@@ -25,8 +36,10 @@ describe("AlignmentControls", () => {
 
     const renderedButtons = component.find(Button)
 
+    renderedButtons.at(0).children()
+
     expect(renderedButtons.length).toBe(2)
-    expect(renderedButtons.at(0).key()).toBe(".$LEFT")
-    expect(renderedButtons.at(1).key()).toBe(".$RIGHT")
+    expect(renderedButtons.at(0).prop("id")).toBe("LEFT")
+    expect(renderedButtons.at(1).prop("id")).toBe("RIGHT")
   })
 })
