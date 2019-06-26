@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/jordanriser/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
+  /Users/jordanriser/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test
 
 PATH: 
   /Applications/MAMP/bin/php/php7.1.8/bin:/Applications/MAMP/Library/bin:/usr/local/share/python:/Users/jordanriser/.fastlane/bin:/Users/jordanriser/.rbenv/shims:/Users/jordanriser/.nvm/versions/node/v8.10.0/bin:/Users/jordanriser/.rvm/gems/ruby-2.6.0/bin:/Users/jordanriser/.rvm/gems/ruby-2.6.0@global/bin:/Users/jordanriser/.rvm/rubies/ruby-2.6.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/jordanriser/.rvm/bin:/Users/jordanriser/Library/Android/sdk/emulator:/Users/jordanriser/Library/Android/sdk/tools:/Users/jordanriser/Library/Android/sdk/tools/bin:/Users/jordanriser/Library/Android/sdk/platform-tools
@@ -10945,9 +10945,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 2
+  Exit code: 127
   Command: sh
-  Arguments: -c webpack --mode production
+  Arguments: -c jest --watch
   Directory: /Users/jordanriser/workspace/material-ui-rte
   Output:
   
