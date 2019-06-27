@@ -1,6 +1,5 @@
 import React, { Fragment } from "react"
-import ButtonGroup from "@material-ui/core/ButtonGroup"
-import Button from "@material-ui/core/Button"
+import { ButtonGroup, Button } from "@material-ui/core"
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
 
 const ImageUploadControl = props => {

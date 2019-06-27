@@ -1,7 +1,6 @@
 import React from "react"
+import { ButtonGroup, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
-import ButtonGroup from "@material-ui/core/ButtonGroup"
 import FormatBoldIcon from "@material-ui/icons/FormatBold"
 import FormatItalicIcon from "@material-ui/icons/FormatItalic"
 import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined"

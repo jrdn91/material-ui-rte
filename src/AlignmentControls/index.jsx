@@ -1,11 +1,9 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
-import ButtonGroup from "@material-ui/core/ButtonGroup"
+import { ButtonGroup, Tooltip, Button } from "@material-ui/core"
 import FormatAlignLeftIcon from "@material-ui/icons/FormatAlignLeft"
 import FormatAlignCenterIcon from "@material-ui/icons/FormatAlignCenter"
 import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight"
-import Tooltip from "@material-ui/core/Tooltip"
 import clsx from "clsx"
 import styles from "./styles"
 

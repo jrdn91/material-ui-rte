@@ -1,11 +1,13 @@
 import React from "react"
-import Input from "@material-ui/core/Input"
-import InputAdornment from "@material-ui/core/InputAdornment"
+import {
+  FormControl,
+  Input,
+  InputAdornment,
+  Menu,
+  MenuItem,
+  Typography
+} from "@material-ui/core"
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import FormControl from "@material-ui/core/FormControl"
-import Typography from "@material-ui/core/Typography"
 import BLOCK_TYPES from "./blockTypes"
 
 const BlockStyleControl = props => {
