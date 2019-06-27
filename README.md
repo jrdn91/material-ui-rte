@@ -96,6 +96,7 @@ Run tests with `yarn test`
 
 ## ToDo
 
+- [ ] Move docs to Docz
 - [ ] Color picker
 - [ ] Image controls
 - [ ] Support for custom controls
