@@ -37,7 +37,7 @@ const BlockStyleControl = props => {
         value={selectValue.label}
         endAdornment={
           <InputAdornment position="end">
-            <ArrowDropDownIcon style={{ color: "rgba(0, 0, 0, 0.54)" }} />
+            <ArrowDropDownIcon />
           </InputAdornment>
         }
         inputProps={{
