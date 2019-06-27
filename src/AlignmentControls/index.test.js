@@ -2,7 +2,7 @@ import React from "react"
 import { createShallow, createMount } from "@material-ui/core/test-utils"
 import { EditorState } from "draft-js"
 import AlignmentControls from "./index"
-import { Button } from "@material-ui/core"
+import Button from "@material-ui/core/Button"
 
 describe("AlignmentControls", () => {
   let editorState

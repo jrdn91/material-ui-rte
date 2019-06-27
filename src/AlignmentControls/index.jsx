@@ -5,9 +5,9 @@ import ButtonGroup from "@material-ui/core/ButtonGroup"
 import FormatAlignLeftIcon from "@material-ui/icons/FormatAlignLeft"
 import FormatAlignCenterIcon from "@material-ui/icons/FormatAlignCenter"
 import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight"
+import Tooltip from "@material-ui/core/Tooltip"
 import clsx from "clsx"
 import styles from "./styles"
-import { Tooltip } from "@material-ui/core"
 
 const isMacOS = navigator.platform.toLowerCase().indexOf("mac") > -1
 
