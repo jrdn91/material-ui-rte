@@ -49,20 +49,26 @@ const theme = createMuiTheme({
 })
 
 storiesOf("Editor")
-  .add("Basic", () => <Editor onChange={action("editor content changed")} />)
-  .add("Customized Controls", () => (
-    <Editor
-      onChange={action("editor content changed")}
-      blockStyleControls={[
-        "paragraph",
-        "header-one",
-        "header-two",
-        "header-three"
-      ]}
-      imageUploadControl={false}
-      alignmentControls={["left", "center"]}
-    />
-  ))
+  .add("Basic", () => <Editor onChange={action("editor content changed")} />, {
+    info: { inline: true, header: false, propTables: false }
+  })
+  .add(
+    "Customized Controls",
+    () => (
+      <Editor
+        onChange={action("editor content changed")}
+        blockStyleControls={[
+          "paragraph",
+          "header-one",
+          "header-two",
+          "header-three"
+        ]}
+        imageUploadControl={false}
+        alignmentControls={["left", "center"]}
+      />
+    ),
+    { info: { inline: true, header: false, propTables: false } }
+  )
   .add("Custom Theme", () => (
     <ThemeProvider theme={theme}>
       <Editor onChange={action("editor content changed")} />
