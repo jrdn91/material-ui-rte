@@ -82,7 +82,7 @@
     "jest": "^24.8.0",
     "jss-snapshot-serializer": "^1.0.0",
     "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "sass-loader": "^7.1.0",
